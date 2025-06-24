@@ -1,4 +1,7 @@
+
+Flask
+gunicorn
 pandas
-pyodbc
 folium
+pyodbc
 ortools

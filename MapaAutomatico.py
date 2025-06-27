@@ -46,6 +46,7 @@ def solve_tsp(distance_matrix):
     return list(range(size))
 
 def gerar_mapa_com_query(tipo):
+    print("Conectando ao banco...")
     conn_str = (
         "DRIVER={ODBC Driver 17 for SQL Server};"
         "SERVER=10.1.0.3\\SQLSTANDARD;"
@@ -58,49 +59,67 @@ def gerar_mapa_com_query(tipo):
     if tipo == 1:
         nome_arquivo = "mapa_motorista.html"
         query = """
-        WITH RankedData AS (
-            SELECT 
-                dt.M06_DTSAIDA,
-                m.M13_DESC AS MOTORISTA,
-                dt.M06_VEIC_PLACA,
-                dt.M06_ID_CLIENTE AS CODIGO,
-                dt.M06_ID_A76 AS OP,
-                c.A00_FANTASIA AS NOME_FANTASIA,
-                c.A00_LAT AS LATITUDE,
-                c.A00_LONG AS LONGITUDE,
-                SUM(dt.M06_TOTPRO) AS FATURAMENTO,
-                ROW_NUMBER() OVER (PARTITION BY dt.M06_ID_CLIENTE ORDER BY dt.M06_DTSAIDA) AS rn
-            FROM M06 AS dt
-            JOIN M13 AS m ON dt.M06_ID_M13 = m.M13_ID
-            JOIN A00 AS c ON dt.M06_ID_CLIENTE = c.A00_ID
-            WHERE 
-                c.A00_STATUS = 1
-                AND dt.M06_DTSAIDA >= CAST(DATEADD(DAY, 1, GETDATE()) AS DATE)
-                AND dt.M06_DTSAIDA < DATEADD(DAY, 2, CAST(GETDATE() AS DATE))
-                AND dt.M06_ID_A76 IN (38, 39, 100, 1171, 101, 172, 112, 130, 113)
-            GROUP BY 
-                dt.M06_DTSAIDA,
-                m.M13_DESC,
-                dt.M06_VEIC_PLACA,
-                dt.M06_ID_CLIENTE,
-                dt.M06_ID_A76,
-                c.A00_FANTASIA,
-                c.A00_LAT,
-                c.A00_LONG
-        )
-        SELECT 
-            M06_DTSAIDA,
-            MOTORISTA,
-            M06_VEIC_PLACA,
-            CODIGO,
-            OP,
-            NOME_FANTASIA,
-            LATITUDE,
-            LONGITUDE,
-            FATURAMENTO
-        FROM RankedData
-        WHERE rn = 1
-        ORDER BY M06_DTSAIDA ASC;
+       SET DATEFIRST 7; -- Domingo é o dia 1, sábado é 7 (DATEPART = 7)
+
+WITH DataReferencia AS (
+    SELECT CAST(
+        DATEADD(DAY, 
+            CASE 
+                WHEN DATEPART(WEEKDAY, GETDATE()) = 7 THEN 2  -- Sábado → segunda
+                ELSE 1                                     -- Outros dias → amanhã
+            END, 
+            GETDATE()
+        ) AS DATE
+    ) AS DATA_ENTREGA
+),
+
+RankedData AS (
+    SELECT 
+        dt.M06_STATUS,
+        dt.M06_DTSAIDA,
+        dt.M06_ID_CLIENTE AS CODIGO,
+        dt.M06_ID_A76 AS OP,
+        c.A00_FANTASIA AS NOME_FANTASIA,
+        c.A00_LAT AS LATITUDE,
+        c.A00_LONG AS LONGITUDE,
+        m.M13_DESC AS MOTORISTA,
+        SUM(dt.M06_TOTPRO) AS FATURAMENTO,
+        ROW_NUMBER() OVER (
+            PARTITION BY dt.M06_ID_CLIENTE 
+            ORDER BY dt.M06_DTSAIDA
+        ) AS rn
+    FROM M06 AS dt
+    JOIN A00 AS c ON dt.M06_ID_CLIENTE = c.A00_ID
+    JOIN M13 AS m ON dt.M06_ID_M13 = m.M13_ID
+    JOIN DataReferencia dr ON CAST(dt.M06_DTSAIDA AS DATE) = dr.DATA_ENTREGA
+    WHERE 
+        c.A00_STATUS = 1
+        AND dt.M06_ID_A76 IN (38, 39, 100, 1171, 101, 172, 112, 130, 113)
+        AND dt.M06_STATUS IN (1, 3)
+    GROUP BY 
+        dt.M06_STATUS,
+        dt.M06_DTSAIDA,
+        dt.M06_ID_CLIENTE,
+        dt.M06_ID_A76,
+        c.A00_FANTASIA,
+        c.A00_LAT,
+        c.A00_LONG,
+        m.M13_DESC
+)
+
+SELECT 
+    M06_DTSAIDA,
+    CODIGO,
+    OP,
+    NOME_FANTASIA,
+    LATITUDE,
+    LONGITUDE,
+    MOTORISTA,
+    FATURAMENTO
+FROM RankedData
+WHERE rn = 1
+ORDER BY M06_DTSAIDA ASC;
+
         """
     else:
         nome_arquivo = "mapa_cliente.html"
@@ -147,15 +166,14 @@ def gerar_mapa_com_query(tipo):
     WHERE rn = 1
     ORDER BY M06_DTSAIDA ASC;
     """
-
+    print("Executando query...")
     df = pd.read_sql(query, conn)
     df['LATITUDE'] = pd.to_numeric(df['LATITUDE'], errors='coerce')
     df['LONGITUDE'] = pd.to_numeric(df['LONGITUDE'], errors='coerce')
     df['FATURAMENTO'] = pd.to_numeric(df['FATURAMENTO'], errors='coerce')
     df['M06_DTSAIDA'] = pd.to_datetime(df['M06_DTSAIDA']).dt.date
-
-    data_filtro = (datetime.now() + timedelta(days=1)).date()
-    df = df[df['M06_DTSAIDA'] == data_filtro]
+    print("Query executada. Gerando mapa...")
+    data_filtro = df['M06_DTSAIDA'].iloc[0] if not df.empty else datetime.now().date()
 
     casa_motorista = (-3.7572635398641, -38.5854081195323)
     mapa = folium.Map(location=casa_motorista, zoom_start=10)
@@ -252,6 +270,6 @@ def gerar_mapa_com_query(tipo):
         ]) +
         "</div>"
     )
-
+    print("foi")
     mapa.get_root().html.add_child(folium.Element(legenda_html))
     mapa.save(nome_arquivo)

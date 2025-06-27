@@ -25,7 +25,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_e54444a6f386dd3e68508fdb1b5d6fba {
+                #map_e50f63a7025a169100768d0ab75ce9cb {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -38,16 +38,16 @@
 </head>
 <body>
     
-    <div style='position:fixed;bottom:50px;left:50px;width:300px;background:white;border:2px solid grey;z-index:9999;padding:10px;box-shadow:2px 2px 5px rgba(0,0,0,0.3);font-size:14px;'><b>Clientes totais:</b> 31<br><b>Faturamento total:</b> R$ 20,187.63<br><b>Atualizado:</b> Saída: 25/06/2025<br><br><div style='display:flex;align-items:center;margin-bottom:5px;'><div style='width:15px;height:15px;background:blue;border-radius:50%;margin-right:8px;'></div><b>CLIENTES</b>: R$ 20,187.63  </div></div>
+    <div style='position:fixed;bottom:50px;left:50px;width:300px;background:white;border:2px solid grey;z-index:9999;padding:10px;box-shadow:2px 2px 5px rgba(0,0,0,0.3);font-size:14px;'><b>Clientes totais:</b> 15<br><b>Faturamento total:</b> R$ 15,024.34<br><b>Atualizado:</b> Saída: 28/06/2025<br><br><div style='display:flex;align-items:center;margin-bottom:5px;'><div style='width:15px;height:15px;background:blue;border-radius:50%;margin-right:8px;'></div><b>CLIENTES</b>: R$ 15,024.34  </div></div>
     
-            <div class="folium-map" id="map_e54444a6f386dd3e68508fdb1b5d6fba" ></div>
+            <div class="folium-map" id="map_e50f63a7025a169100768d0ab75ce9cb" ></div>
         
 </body>
 <script>
     
     
-            var map_e54444a6f386dd3e68508fdb1b5d6fba = L.map(
-                "map_e54444a6f386dd3e68508fdb1b5d6fba",
+            var map_e50f63a7025a169100768d0ab75ce9cb = L.map(
+                "map_e50f63a7025a169100768d0ab75ce9cb",
                 {
                     center: [-3.7572635398641, -38.5854081195323],
                     crs: L.CRS.EPSG3857,
@@ -64,7 +64,7 @@
 
         
     
-            var tile_layer_dedd3bd4d96d0da39bdccf25e4938bb8 = L.tileLayer(
+            var tile_layer_9f44c6e553dc3914468c2ceb75518782 = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -81,17 +81,17 @@
             );
         
     
-            tile_layer_dedd3bd4d96d0da39bdccf25e4938bb8.addTo(map_e54444a6f386dd3e68508fdb1b5d6fba);
+            tile_layer_9f44c6e553dc3914468c2ceb75518782.addTo(map_e50f63a7025a169100768d0ab75ce9cb);
         
     
-            var marker_6e7c85e6808b6482584c545eaa48d981 = L.marker(
+            var marker_138e844ada7d8e17e6a25e2179abde79 = L.marker(
                 [-3.7572635398641, -38.5854081195323],
                 {
 }
-            ).addTo(map_e54444a6f386dd3e68508fdb1b5d6fba);
+            ).addTo(map_e50f63a7025a169100768d0ab75ce9cb);
         
     
-            var icon_e9eb3079d9894a503061fc453c8a7050 = L.AwesomeMarkers.icon(
+            var icon_43aacfa8b8723ed4616bf2fbc9c837ae = L.AwesomeMarkers.icon(
                 {
   "markerColor": "gray",
   "iconColor": "white",
@@ -102,7 +102,7 @@
             );
         
     
-            marker_6e7c85e6808b6482584c545eaa48d981.bindTooltip(
+            marker_138e844ada7d8e17e6a25e2179abde79.bindTooltip(
                 `<div>
                      CD - VALEMILK
                  </div>`,
@@ -112,49 +112,49 @@
             );
         
     
-                marker_6e7c85e6808b6482584c545eaa48d981.setIcon(icon_e9eb3079d9894a503061fc453c8a7050);
+                marker_138e844ada7d8e17e6a25e2179abde79.setIcon(icon_43aacfa8b8723ed4616bf2fbc9c837ae);
             
     
-            var feature_group_1aa6c6d153b02903fbb006f906bacd29 = L.featureGroup(
+            var feature_group_f71870393d8baa6d6682ccf413f5c94a = L.featureGroup(
                 {
 }
             );
         
     
-            var marker_6ab03fdc348eeb3152b85816339adf70 = L.marker(
-                [-3.7618173, -38.5915647],
+            var marker_6b5e4ca3c4b9358d00f66e481d45bb9d = L.marker(
+                [-3.76276707, -38.5819854],
                 {
 }
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
+            ).addTo(feature_group_f71870393d8baa6d6682ccf413f5c94a);
         
     
-            var div_icon_e82afd0434b887d7480a14babc9230f6 = L.divIcon({
+            var div_icon_70404f18fdeed955553bf4e93fbe2109 = L.divIcon({
   "html": "\u003cdiv style=\u0027width:30px;height:30px;border-radius:50%;background:blue;display:flex;align-items:center;justify-content:center;font-weight:bold;color:white;\u0027\u003e1\u003c/div\u003e",
   "className": "empty",
 });
-            marker_6ab03fdc348eeb3152b85816339adf70.setIcon(div_icon_e82afd0434b887d7480a14babc9230f6);
+            marker_6b5e4ca3c4b9358d00f66e481d45bb9d.setIcon(div_icon_70404f18fdeed955553bf4e93fbe2109);
         
     
-        var popup_409981b6262782cec51bcc3500132ce5 = L.popup({
+        var popup_9a6b4be555692030137776842bd192ed = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_f4ebfadde3136b8c5992f3d31b7ea39b = $(`<div id="html_f4ebfadde3136b8c5992f3d31b7ea39b" style="width: 100.0%; height: 100.0%;"><b>FRANCISCA BEZERRA DE SOUZA JUNIOR                                                                   </b> (Cód: 9321)</div>`)[0];
-                popup_409981b6262782cec51bcc3500132ce5.setContent(html_f4ebfadde3136b8c5992f3d31b7ea39b);
+                var html_0f1df207f9ecaff8f43b4906ba634300 = $(`<div id="html_0f1df207f9ecaff8f43b4906ba634300" style="width: 100.0%; height: 100.0%;"><b>NOSSA SENHORA                                                                                       </b> (Cód: 11038)</div>`)[0];
+                popup_9a6b4be555692030137776842bd192ed.setContent(html_0f1df207f9ecaff8f43b4906ba634300);
             
         
 
-        marker_6ab03fdc348eeb3152b85816339adf70.bindPopup(popup_409981b6262782cec51bcc3500132ce5)
+        marker_6b5e4ca3c4b9358d00f66e481d45bb9d.bindPopup(popup_9a6b4be555692030137776842bd192ed)
         ;
 
         
     
     
-            marker_6ab03fdc348eeb3152b85816339adf70.bindTooltip(
+            marker_6b5e4ca3c4b9358d00f66e481d45bb9d.bindTooltip(
                 `<div>
-                     1 - FRANCISCA BEZERRA DE SOUZA JUNIOR                                                                   
+                     1 - NOSSA SENHORA                                                                                       
                  </div>`,
                 {
   "sticky": true,
@@ -162,49 +162,49 @@
             );
         
     
-                marker_6ab03fdc348eeb3152b85816339adf70.setIcon(div_icon_e82afd0434b887d7480a14babc9230f6);
+                marker_6b5e4ca3c4b9358d00f66e481d45bb9d.setIcon(div_icon_70404f18fdeed955553bf4e93fbe2109);
             
     
-            var poly_line_2e0d8a290ff54f2f785b53e14c33ad99 = L.polyline(
-                [[-3.7572635398641, -38.5854081195323], [-3.7618173, -38.5915647]],
+            var poly_line_5515d6c9af4adfcd5428413d58402373 = L.polyline(
+                [[-3.7572635398641, -38.5854081195323], [-3.76276707, -38.5819854]],
                 {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
+            ).addTo(feature_group_f71870393d8baa6d6682ccf413f5c94a);
         
     
-            var marker_d0718f9af32c368ee288c8defed2f02f = L.marker(
-                [-3.77289, -38.5882422],
+            var marker_9991a3b68fab118dcef7a22d02bd6a03 = L.marker(
+                [-3.7916508, -38.61465125],
                 {
 }
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
+            ).addTo(feature_group_f71870393d8baa6d6682ccf413f5c94a);
         
     
-            var div_icon_b943f8577cd9de0d16c489fe725a7569 = L.divIcon({
+            var div_icon_2b066372e0d312a9fd276ceeae4ddcd1 = L.divIcon({
   "html": "\u003cdiv style=\u0027width:30px;height:30px;border-radius:50%;background:blue;display:flex;align-items:center;justify-content:center;font-weight:bold;color:white;\u0027\u003e2\u003c/div\u003e",
   "className": "empty",
 });
-            marker_d0718f9af32c368ee288c8defed2f02f.setIcon(div_icon_b943f8577cd9de0d16c489fe725a7569);
+            marker_9991a3b68fab118dcef7a22d02bd6a03.setIcon(div_icon_2b066372e0d312a9fd276ceeae4ddcd1);
         
     
-        var popup_04e1951f6ba8e69301a74a4bb0a6b5e6 = L.popup({
+        var popup_832ce9c436cfaad4a80d472bf9d6cbf3 = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_6b19e8cf7114102ddc2ed97ac07760f3 = $(`<div id="html_6b19e8cf7114102ddc2ed97ac07760f3" style="width: 100.0%; height: 100.0%;"><b>CENTERBOX - JOAO XXIII                                                                              </b> (Cód: 663)</div>`)[0];
-                popup_04e1951f6ba8e69301a74a4bb0a6b5e6.setContent(html_6b19e8cf7114102ddc2ed97ac07760f3);
+                var html_a335b9540d35f0ce6162d1223dab2ae4 = $(`<div id="html_a335b9540d35f0ce6162d1223dab2ae4" style="width: 100.0%; height: 100.0%;"><b>MERCADINHO SERRA GRANDE                                                                             </b> (Cód: 12119)</div>`)[0];
+                popup_832ce9c436cfaad4a80d472bf9d6cbf3.setContent(html_a335b9540d35f0ce6162d1223dab2ae4);
             
         
 
-        marker_d0718f9af32c368ee288c8defed2f02f.bindPopup(popup_04e1951f6ba8e69301a74a4bb0a6b5e6)
+        marker_9991a3b68fab118dcef7a22d02bd6a03.bindPopup(popup_832ce9c436cfaad4a80d472bf9d6cbf3)
         ;
 
         
     
     
-            marker_d0718f9af32c368ee288c8defed2f02f.bindTooltip(
+            marker_9991a3b68fab118dcef7a22d02bd6a03.bindTooltip(
                 `<div>
-                     2 - CENTERBOX - JOAO XXIII                                                                              
+                     2 - MERCADINHO SERRA GRANDE                                                                             
                  </div>`,
                 {
   "sticky": true,
@@ -212,49 +212,49 @@
             );
         
     
-                marker_d0718f9af32c368ee288c8defed2f02f.setIcon(div_icon_b943f8577cd9de0d16c489fe725a7569);
+                marker_9991a3b68fab118dcef7a22d02bd6a03.setIcon(div_icon_2b066372e0d312a9fd276ceeae4ddcd1);
             
     
-            var poly_line_8affee92ce7ad8c96a8b45b1978da31d = L.polyline(
-                [[-3.7618173, -38.5915647], [-3.77289, -38.5882422]],
+            var poly_line_b499969dbf1efedae0162f747610e120 = L.polyline(
+                [[-3.76276707, -38.5819854], [-3.7916508, -38.61465125]],
                 {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
+            ).addTo(feature_group_f71870393d8baa6d6682ccf413f5c94a);
         
     
-            var marker_cbb69e6ba73c1937d985f89bf2cee523 = L.marker(
-                [-3.7779625, -38.5519438],
+            var marker_1fd04356175d573bec08fc21e1432dbf = L.marker(
+                [-3.81534018, -38.60506827],
                 {
 }
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
+            ).addTo(feature_group_f71870393d8baa6d6682ccf413f5c94a);
         
     
-            var div_icon_7765317749b4282df1e6417afcac800f = L.divIcon({
+            var div_icon_c58320205fc9487bd06cdacb16ec4566 = L.divIcon({
   "html": "\u003cdiv style=\u0027width:30px;height:30px;border-radius:50%;background:blue;display:flex;align-items:center;justify-content:center;font-weight:bold;color:white;\u0027\u003e3\u003c/div\u003e",
   "className": "empty",
 });
-            marker_cbb69e6ba73c1937d985f89bf2cee523.setIcon(div_icon_7765317749b4282df1e6417afcac800f);
+            marker_1fd04356175d573bec08fc21e1432dbf.setIcon(div_icon_c58320205fc9487bd06cdacb16ec4566);
         
     
-        var popup_0160dfe2ce2964d032f8f95c2e3264a5 = L.popup({
+        var popup_d00f29e3dec810c1b77c7b0e65604491 = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_83d6851460d3f29b1e1b52be1916f1d3 = $(`<div id="html_83d6851460d3f29b1e1b52be1916f1d3" style="width: 100.0%; height: 100.0%;"><b>SUPER SAO JOSE                                                                                      </b> (Cód: 10961)</div>`)[0];
-                popup_0160dfe2ce2964d032f8f95c2e3264a5.setContent(html_83d6851460d3f29b1e1b52be1916f1d3);
+                var html_c79c93049cbef7602b7a50efcd67171f = $(`<div id="html_c79c93049cbef7602b7a50efcd67171f" style="width: 100.0%; height: 100.0%;"><b>CLAECK SUPERMERCADO - JARDIM FLUMINENSE                                                             </b> (Cód: 4888)</div>`)[0];
+                popup_d00f29e3dec810c1b77c7b0e65604491.setContent(html_c79c93049cbef7602b7a50efcd67171f);
             
         
 
-        marker_cbb69e6ba73c1937d985f89bf2cee523.bindPopup(popup_0160dfe2ce2964d032f8f95c2e3264a5)
+        marker_1fd04356175d573bec08fc21e1432dbf.bindPopup(popup_d00f29e3dec810c1b77c7b0e65604491)
         ;
 
         
     
     
-            marker_cbb69e6ba73c1937d985f89bf2cee523.bindTooltip(
+            marker_1fd04356175d573bec08fc21e1432dbf.bindTooltip(
                 `<div>
-                     3 - SUPER SAO JOSE                                                                                      
+                     3 - CLAECK SUPERMERCADO - JARDIM FLUMINENSE                                                             
                  </div>`,
                 {
   "sticky": true,
@@ -262,49 +262,49 @@
             );
         
     
-                marker_cbb69e6ba73c1937d985f89bf2cee523.setIcon(div_icon_7765317749b4282df1e6417afcac800f);
+                marker_1fd04356175d573bec08fc21e1432dbf.setIcon(div_icon_c58320205fc9487bd06cdacb16ec4566);
             
     
-            var poly_line_588df4deb151a42c427d972d0c4db4ad = L.polyline(
-                [[-3.77289, -38.5882422], [-3.7779625, -38.5519438]],
+            var poly_line_54a247bc1d39e279d5aa02a94c88f3d8 = L.polyline(
+                [[-3.7916508, -38.61465125], [-3.81534018, -38.60506827]],
                 {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
+            ).addTo(feature_group_f71870393d8baa6d6682ccf413f5c94a);
         
     
-            var marker_77e1b5cda60f6b4552daea8d11ce7260 = L.marker(
-                [-3.7396227, -38.50589088],
+            var marker_b525fd519ccb017e7374ccc765f779e9 = L.marker(
+                [-3.806077, -38.5966382],
                 {
 }
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
+            ).addTo(feature_group_f71870393d8baa6d6682ccf413f5c94a);
         
     
-            var div_icon_4b3919e5d5ebff5dc3c13ae9f55b9804 = L.divIcon({
+            var div_icon_bfffb67ff9ab98747dc4a5f4a7a94ca7 = L.divIcon({
   "html": "\u003cdiv style=\u0027width:30px;height:30px;border-radius:50%;background:blue;display:flex;align-items:center;justify-content:center;font-weight:bold;color:white;\u0027\u003e4\u003c/div\u003e",
   "className": "empty",
 });
-            marker_77e1b5cda60f6b4552daea8d11ce7260.setIcon(div_icon_4b3919e5d5ebff5dc3c13ae9f55b9804);
+            marker_b525fd519ccb017e7374ccc765f779e9.setIcon(div_icon_bfffb67ff9ab98747dc4a5f4a7a94ca7);
         
     
-        var popup_19f10764b081132f3c23caf80ee525c4 = L.popup({
+        var popup_f974b98202ca04fb54ec15544b938a59 = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_df612c6e32001ef08f375185e0f34bff = $(`<div id="html_df612c6e32001ef08f375185e0f34bff" style="width: 100.0%; height: 100.0%;"><b>COOKIE                                                                                              </b> (Cód: 11032)</div>`)[0];
-                popup_19f10764b081132f3c23caf80ee525c4.setContent(html_df612c6e32001ef08f375185e0f34bff);
+                var html_048c034e909a7a2b97260a0a09196486 = $(`<div id="html_048c034e909a7a2b97260a0a09196486" style="width: 100.0%; height: 100.0%;"><b>CLAECK SUPERMERCADO - PRQ JERUSALEM                                                                 </b> (Cód: 3643)</div>`)[0];
+                popup_f974b98202ca04fb54ec15544b938a59.setContent(html_048c034e909a7a2b97260a0a09196486);
             
         
 
-        marker_77e1b5cda60f6b4552daea8d11ce7260.bindPopup(popup_19f10764b081132f3c23caf80ee525c4)
+        marker_b525fd519ccb017e7374ccc765f779e9.bindPopup(popup_f974b98202ca04fb54ec15544b938a59)
         ;
 
         
     
     
-            marker_77e1b5cda60f6b4552daea8d11ce7260.bindTooltip(
+            marker_b525fd519ccb017e7374ccc765f779e9.bindTooltip(
                 `<div>
-                     4 - COOKIE                                                                                              
+                     4 - CLAECK SUPERMERCADO - PRQ JERUSALEM                                                                 
                  </div>`,
                 {
   "sticky": true,
@@ -312,49 +312,49 @@
             );
         
     
-                marker_77e1b5cda60f6b4552daea8d11ce7260.setIcon(div_icon_4b3919e5d5ebff5dc3c13ae9f55b9804);
+                marker_b525fd519ccb017e7374ccc765f779e9.setIcon(div_icon_bfffb67ff9ab98747dc4a5f4a7a94ca7);
             
     
-            var poly_line_53c7f7dfb7a568ff2f54d617a8f865b7 = L.polyline(
-                [[-3.7779625, -38.5519438], [-3.7396227, -38.50589088]],
+            var poly_line_f634018d20e3a0396b5847af21879e19 = L.polyline(
+                [[-3.81534018, -38.60506827], [-3.806077, -38.5966382]],
                 {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
+            ).addTo(feature_group_f71870393d8baa6d6682ccf413f5c94a);
         
     
-            var marker_019ce5fe1ecf003acd0854e96dcf2eca = L.marker(
-                [-3.7424091, -38.4867581],
+            var marker_615d376f06daf73a212de45590ba43bc = L.marker(
+                [-3.8142935, -38.5831318],
                 {
 }
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
+            ).addTo(feature_group_f71870393d8baa6d6682ccf413f5c94a);
         
     
-            var div_icon_d2012f6c7bb944f49f7b5fab6f875768 = L.divIcon({
+            var div_icon_3b968b474009df2f79e28403dea10591 = L.divIcon({
   "html": "\u003cdiv style=\u0027width:30px;height:30px;border-radius:50%;background:blue;display:flex;align-items:center;justify-content:center;font-weight:bold;color:white;\u0027\u003e5\u003c/div\u003e",
   "className": "empty",
 });
-            marker_019ce5fe1ecf003acd0854e96dcf2eca.setIcon(div_icon_d2012f6c7bb944f49f7b5fab6f875768);
+            marker_615d376f06daf73a212de45590ba43bc.setIcon(div_icon_3b968b474009df2f79e28403dea10591);
         
     
-        var popup_80b13d20b4a8993c783fc42df4319196 = L.popup({
+        var popup_348f5ae31a8b48aec7632e24e9098b63 = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_4f65465b913d85a8025c7dae055967bd = $(`<div id="html_4f65465b913d85a8025c7dae055967bd" style="width: 100.0%; height: 100.0%;"><b>CENTERBOX - CONCEITO                                                                                </b> (Cód: 972)</div>`)[0];
-                popup_80b13d20b4a8993c783fc42df4319196.setContent(html_4f65465b913d85a8025c7dae055967bd);
+                var html_6fc27106a1c5096132b16fbda0ebe39b = $(`<div id="html_6fc27106a1c5096132b16fbda0ebe39b" style="width: 100.0%; height: 100.0%;"><b>CLAECK SUPERMERCADO - PRQ SANTANA                                                                   </b> (Cód: 2292)</div>`)[0];
+                popup_348f5ae31a8b48aec7632e24e9098b63.setContent(html_6fc27106a1c5096132b16fbda0ebe39b);
             
         
 
-        marker_019ce5fe1ecf003acd0854e96dcf2eca.bindPopup(popup_80b13d20b4a8993c783fc42df4319196)
+        marker_615d376f06daf73a212de45590ba43bc.bindPopup(popup_348f5ae31a8b48aec7632e24e9098b63)
         ;
 
         
     
     
-            marker_019ce5fe1ecf003acd0854e96dcf2eca.bindTooltip(
+            marker_615d376f06daf73a212de45590ba43bc.bindTooltip(
                 `<div>
-                     5 - CENTERBOX - CONCEITO                                                                                
+                     5 - CLAECK SUPERMERCADO - PRQ SANTANA                                                                   
                  </div>`,
                 {
   "sticky": true,
@@ -362,49 +362,49 @@
             );
         
     
-                marker_019ce5fe1ecf003acd0854e96dcf2eca.setIcon(div_icon_d2012f6c7bb944f49f7b5fab6f875768);
+                marker_615d376f06daf73a212de45590ba43bc.setIcon(div_icon_3b968b474009df2f79e28403dea10591);
             
     
-            var poly_line_a12bbbeeee633b328c5dda70c7e60b87 = L.polyline(
-                [[-3.7396227, -38.50589088], [-3.7424091, -38.4867581]],
+            var poly_line_6194a6b34298a43d20328aeadbb94d58 = L.polyline(
+                [[-3.806077, -38.5966382], [-3.8142935, -38.5831318]],
                 {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
+            ).addTo(feature_group_f71870393d8baa6d6682ccf413f5c94a);
         
     
-            var marker_f5ee51fd93c3330e17412afd27f700bd = L.marker(
-                [-3.72712807, -38.47527325],
+            var marker_3528d5431e9f3c8427950687e38b0974 = L.marker(
+                [-3.8131261, -38.5610963],
                 {
 }
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
+            ).addTo(feature_group_f71870393d8baa6d6682ccf413f5c94a);
         
     
-            var div_icon_0cc7d7679305dd94451a5d701b8a097a = L.divIcon({
+            var div_icon_7802ab4bbd21ecde2c5cccb17bea8ed8 = L.divIcon({
   "html": "\u003cdiv style=\u0027width:30px;height:30px;border-radius:50%;background:blue;display:flex;align-items:center;justify-content:center;font-weight:bold;color:white;\u0027\u003e6\u003c/div\u003e",
   "className": "empty",
 });
-            marker_f5ee51fd93c3330e17412afd27f700bd.setIcon(div_icon_0cc7d7679305dd94451a5d701b8a097a);
+            marker_3528d5431e9f3c8427950687e38b0974.setIcon(div_icon_7802ab4bbd21ecde2c5cccb17bea8ed8);
         
     
-        var popup_4d75a2df2611457f3a1eaefcb6507498 = L.popup({
+        var popup_02a0f2b5faa7151716253393e103cbf1 = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_d8ead9fd985d0b10f4e55fba29e5a909 = $(`<div id="html_d8ead9fd985d0b10f4e55fba29e5a909" style="width: 100.0%; height: 100.0%;"><b>SUPER LUA - AREIA BRANCA                                                                            </b> (Cód: 11645)</div>`)[0];
-                popup_4d75a2df2611457f3a1eaefcb6507498.setContent(html_d8ead9fd985d0b10f4e55fba29e5a909);
+                var html_36973e020aa650c63240fe539c284c3f = $(`<div id="html_36973e020aa650c63240fe539c284c3f" style="width: 100.0%; height: 100.0%;"><b>MERCEARIA PADRE CICERO ITAPERI                                                                      </b> (Cód: 4272)</div>`)[0];
+                popup_02a0f2b5faa7151716253393e103cbf1.setContent(html_36973e020aa650c63240fe539c284c3f);
             
         
 
-        marker_f5ee51fd93c3330e17412afd27f700bd.bindPopup(popup_4d75a2df2611457f3a1eaefcb6507498)
+        marker_3528d5431e9f3c8427950687e38b0974.bindPopup(popup_02a0f2b5faa7151716253393e103cbf1)
         ;
 
         
     
     
-            marker_f5ee51fd93c3330e17412afd27f700bd.bindTooltip(
+            marker_3528d5431e9f3c8427950687e38b0974.bindTooltip(
                 `<div>
-                     6 - SUPER LUA - AREIA BRANCA                                                                            
+                     6 - MERCEARIA PADRE CICERO ITAPERI                                                                      
                  </div>`,
                 {
   "sticky": true,
@@ -412,49 +412,49 @@
             );
         
     
-                marker_f5ee51fd93c3330e17412afd27f700bd.setIcon(div_icon_0cc7d7679305dd94451a5d701b8a097a);
+                marker_3528d5431e9f3c8427950687e38b0974.setIcon(div_icon_7802ab4bbd21ecde2c5cccb17bea8ed8);
             
     
-            var poly_line_5f9b13668f1495608ce4d900c503552a = L.polyline(
-                [[-3.7424091, -38.4867581], [-3.72712807, -38.47527325]],
+            var poly_line_f742d42ed3eacb84b77a2d2aa9dd0f64 = L.polyline(
+                [[-3.8142935, -38.5831318], [-3.8131261, -38.5610963]],
                 {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
+            ).addTo(feature_group_f71870393d8baa6d6682ccf413f5c94a);
         
     
-            var marker_8c2883da97007a7f550cd2f26daf9f75 = L.marker(
-                [-3.71005321, -38.46808295],
+            var marker_751f43e8cddb7eccad4575a04dfa47d1 = L.marker(
+                [-3.8317798, -38.58973],
                 {
 }
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
+            ).addTo(feature_group_f71870393d8baa6d6682ccf413f5c94a);
         
     
-            var div_icon_6fa55b5917100c0055c6ddb06e10dee9 = L.divIcon({
+            var div_icon_52d6816fa3c30ab77ab6e94177afc425 = L.divIcon({
   "html": "\u003cdiv style=\u0027width:30px;height:30px;border-radius:50%;background:blue;display:flex;align-items:center;justify-content:center;font-weight:bold;color:white;\u0027\u003e7\u003c/div\u003e",
   "className": "empty",
 });
-            marker_8c2883da97007a7f550cd2f26daf9f75.setIcon(div_icon_6fa55b5917100c0055c6ddb06e10dee9);
+            marker_751f43e8cddb7eccad4575a04dfa47d1.setIcon(div_icon_52d6816fa3c30ab77ab6e94177afc425);
         
     
-        var popup_cc1c459753debd6ce86b6a5853fd53aa = L.popup({
+        var popup_6b4699022c3ae830e82ab789f3017ede = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_25b2a9d8c16e04bb2e85933f158b7569 = $(`<div id="html_25b2a9d8c16e04bb2e85933f158b7569" style="width: 100.0%; height: 100.0%;"><b>MERCANTIL SERV LAR                                                                                  </b> (Cód: 12124)</div>`)[0];
-                popup_cc1c459753debd6ce86b6a5853fd53aa.setContent(html_25b2a9d8c16e04bb2e85933f158b7569);
+                var html_a04888d8a8e8c04d3cc74a1f5277356c = $(`<div id="html_a04888d8a8e8c04d3cc74a1f5277356c" style="width: 100.0%; height: 100.0%;"><b>CLAECK SUPERMERCADO - ARACAPE                                                                       </b> (Cód: 9630)</div>`)[0];
+                popup_6b4699022c3ae830e82ab789f3017ede.setContent(html_a04888d8a8e8c04d3cc74a1f5277356c);
             
         
 
-        marker_8c2883da97007a7f550cd2f26daf9f75.bindPopup(popup_cc1c459753debd6ce86b6a5853fd53aa)
+        marker_751f43e8cddb7eccad4575a04dfa47d1.bindPopup(popup_6b4699022c3ae830e82ab789f3017ede)
         ;
 
         
     
     
-            marker_8c2883da97007a7f550cd2f26daf9f75.bindTooltip(
+            marker_751f43e8cddb7eccad4575a04dfa47d1.bindTooltip(
                 `<div>
-                     7 - MERCANTIL SERV LAR                                                                                  
+                     7 - CLAECK SUPERMERCADO - ARACAPE                                                                       
                  </div>`,
                 {
   "sticky": true,
@@ -462,49 +462,49 @@
             );
         
     
-                marker_8c2883da97007a7f550cd2f26daf9f75.setIcon(div_icon_6fa55b5917100c0055c6ddb06e10dee9);
+                marker_751f43e8cddb7eccad4575a04dfa47d1.setIcon(div_icon_52d6816fa3c30ab77ab6e94177afc425);
             
     
-            var poly_line_3ff4d5a2988eba5de0c89ffbd0704494 = L.polyline(
-                [[-3.72712807, -38.47527325], [-3.71005321, -38.46808295]],
+            var poly_line_cbc71d86377f078265bbabc0a8a93312 = L.polyline(
+                [[-3.8131261, -38.5610963], [-3.8317798, -38.58973]],
                 {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
+            ).addTo(feature_group_f71870393d8baa6d6682ccf413f5c94a);
         
     
-            var marker_c8dd93977d87d83afd05b65ff8ad6577 = L.marker(
-                [-3.7242051, -38.4636954],
+            var marker_4db66ab3f2a9fbfb8b0abfa0e13c4ec1 = L.marker(
+                [-3.85564449, -38.5796747],
                 {
 }
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
+            ).addTo(feature_group_f71870393d8baa6d6682ccf413f5c94a);
         
     
-            var div_icon_4d9d33de646a4a78236119fd0241fb0e = L.divIcon({
+            var div_icon_bf050e58dccf532d9a2790581a6ceb7f = L.divIcon({
   "html": "\u003cdiv style=\u0027width:30px;height:30px;border-radius:50%;background:blue;display:flex;align-items:center;justify-content:center;font-weight:bold;color:white;\u0027\u003e8\u003c/div\u003e",
   "className": "empty",
 });
-            marker_c8dd93977d87d83afd05b65ff8ad6577.setIcon(div_icon_4d9d33de646a4a78236119fd0241fb0e);
+            marker_4db66ab3f2a9fbfb8b0abfa0e13c4ec1.setIcon(div_icon_bf050e58dccf532d9a2790581a6ceb7f);
         
     
-        var popup_55b0d57679f51e8c486d43a3f0870602 = L.popup({
+        var popup_6d06532907ea4fea95de89fa42d10c39 = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_d636c609bc13418f1e3f4a34588b1dad = $(`<div id="html_d636c609bc13418f1e3f4a34588b1dad" style="width: 100.0%; height: 100.0%;"><b>SUPER LUA - PROF MURILO                                                                             </b> (Cód: 10749)</div>`)[0];
-                popup_55b0d57679f51e8c486d43a3f0870602.setContent(html_d636c609bc13418f1e3f4a34588b1dad);
+                var html_a734c103eae159aac8d706ab9d176801 = $(`<div id="html_a734c103eae159aac8d706ab9d176801" style="width: 100.0%; height: 100.0%;"><b>MAE RAINHA - MARACANAU                                                                              </b> (Cód: 11220)</div>`)[0];
+                popup_6d06532907ea4fea95de89fa42d10c39.setContent(html_a734c103eae159aac8d706ab9d176801);
             
         
 
-        marker_c8dd93977d87d83afd05b65ff8ad6577.bindPopup(popup_55b0d57679f51e8c486d43a3f0870602)
+        marker_4db66ab3f2a9fbfb8b0abfa0e13c4ec1.bindPopup(popup_6d06532907ea4fea95de89fa42d10c39)
         ;
 
         
     
     
-            marker_c8dd93977d87d83afd05b65ff8ad6577.bindTooltip(
+            marker_4db66ab3f2a9fbfb8b0abfa0e13c4ec1.bindTooltip(
                 `<div>
-                     8 - SUPER LUA - PROF MURILO                                                                             
+                     8 - MAE RAINHA - MARACANAU                                                                              
                  </div>`,
                 {
   "sticky": true,
@@ -512,49 +512,49 @@
             );
         
     
-                marker_c8dd93977d87d83afd05b65ff8ad6577.setIcon(div_icon_4d9d33de646a4a78236119fd0241fb0e);
+                marker_4db66ab3f2a9fbfb8b0abfa0e13c4ec1.setIcon(div_icon_bf050e58dccf532d9a2790581a6ceb7f);
             
     
-            var poly_line_84ac2a329ebcf33c765a0d236d286ce5 = L.polyline(
-                [[-3.71005321, -38.46808295], [-3.7242051, -38.4636954]],
+            var poly_line_319fb5f0a212ad8b369831ad0f5199ad = L.polyline(
+                [[-3.8317798, -38.58973], [-3.85564449, -38.5796747]],
                 {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
+            ).addTo(feature_group_f71870393d8baa6d6682ccf413f5c94a);
         
     
-            var marker_f6267b75efd3f78450c98d7219fd3679 = L.marker(
-                [-3.7440842, -38.4749343],
+            var marker_5b0b2ffef837351ff674ba02f06f468b = L.marker(
+                [-3.88312803, -38.61106739],
                 {
 }
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
+            ).addTo(feature_group_f71870393d8baa6d6682ccf413f5c94a);
         
     
-            var div_icon_021381e19df6cd2ec10e219e5b7956af = L.divIcon({
+            var div_icon_e5ff2644b823b61f85158fec00f49015 = L.divIcon({
   "html": "\u003cdiv style=\u0027width:30px;height:30px;border-radius:50%;background:blue;display:flex;align-items:center;justify-content:center;font-weight:bold;color:white;\u0027\u003e9\u003c/div\u003e",
   "className": "empty",
 });
-            marker_f6267b75efd3f78450c98d7219fd3679.setIcon(div_icon_021381e19df6cd2ec10e219e5b7956af);
+            marker_5b0b2ffef837351ff674ba02f06f468b.setIcon(div_icon_e5ff2644b823b61f85158fec00f49015);
         
     
-        var popup_9502cfac0df5ce6640cef9d5c859a79d = L.popup({
+        var popup_80b65e37325499a567caeb1af3606297 = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_c9e84104be1b86c2dc1499110fb22819 = $(`<div id="html_c9e84104be1b86c2dc1499110fb22819" style="width: 100.0%; height: 100.0%;"><b>CENTERBOX - SANTOS DUMONT                                                                           </b> (Cód: 224)</div>`)[0];
-                popup_9502cfac0df5ce6640cef9d5c859a79d.setContent(html_c9e84104be1b86c2dc1499110fb22819);
+                var html_b7fcf31bf7eab57a1c42dafda9716ca6 = $(`<div id="html_b7fcf31bf7eab57a1c42dafda9716ca6" style="width: 100.0%; height: 100.0%;"><b>UNICOMPRAS - LJ 04                                                                                  </b> (Cód: 11344)</div>`)[0];
+                popup_80b65e37325499a567caeb1af3606297.setContent(html_b7fcf31bf7eab57a1c42dafda9716ca6);
             
         
 
-        marker_f6267b75efd3f78450c98d7219fd3679.bindPopup(popup_9502cfac0df5ce6640cef9d5c859a79d)
+        marker_5b0b2ffef837351ff674ba02f06f468b.bindPopup(popup_80b65e37325499a567caeb1af3606297)
         ;
 
         
     
     
-            marker_f6267b75efd3f78450c98d7219fd3679.bindTooltip(
+            marker_5b0b2ffef837351ff674ba02f06f468b.bindTooltip(
                 `<div>
-                     9 - CENTERBOX - SANTOS DUMONT                                                                           
+                     9 - UNICOMPRAS - LJ 04                                                                                  
                  </div>`,
                 {
   "sticky": true,
@@ -562,49 +562,49 @@
             );
         
     
-                marker_f6267b75efd3f78450c98d7219fd3679.setIcon(div_icon_021381e19df6cd2ec10e219e5b7956af);
+                marker_5b0b2ffef837351ff674ba02f06f468b.setIcon(div_icon_e5ff2644b823b61f85158fec00f49015);
             
     
-            var poly_line_72a2a375afe61d4af17ba93ee3ea23f1 = L.polyline(
-                [[-3.7242051, -38.4636954], [-3.7440842, -38.4749343]],
+            var poly_line_5c8c67962d6a88c88764e2cb8ec9a67d = L.polyline(
+                [[-3.85564449, -38.5796747], [-3.88312803, -38.61106739]],
                 {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
+            ).addTo(feature_group_f71870393d8baa6d6682ccf413f5c94a);
         
     
-            var marker_921e0f27e3542220b6ec3f57ab600afa = L.marker(
-                [-3.7967961, -38.46483618],
+            var marker_f2ae005a8d3364f9385880df242904c2 = L.marker(
+                [-3.88713497, -38.61902587],
                 {
 }
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
+            ).addTo(feature_group_f71870393d8baa6d6682ccf413f5c94a);
         
     
-            var div_icon_bfd0e409bcac7052179101dffa67a828 = L.divIcon({
+            var div_icon_a70b0356d11717bd45eec529d8360c52 = L.divIcon({
   "html": "\u003cdiv style=\u0027width:30px;height:30px;border-radius:50%;background:blue;display:flex;align-items:center;justify-content:center;font-weight:bold;color:white;\u0027\u003e10\u003c/div\u003e",
   "className": "empty",
 });
-            marker_921e0f27e3542220b6ec3f57ab600afa.setIcon(div_icon_bfd0e409bcac7052179101dffa67a828);
+            marker_f2ae005a8d3364f9385880df242904c2.setIcon(div_icon_a70b0356d11717bd45eec529d8360c52);
         
     
-        var popup_e3b28762a0333614bd5bdd8e38bff850 = L.popup({
+        var popup_8e85a9574b35d3864a59959f725a1168 = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_ef59f506fab0e5cac67bc130afb5634a = $(`<div id="html_ef59f506fab0e5cac67bc130afb5634a" style="width: 100.0%; height: 100.0%;"><b>MERCADINHO DA APARECIDA                                                                             </b> (Cód: 11929)</div>`)[0];
-                popup_e3b28762a0333614bd5bdd8e38bff850.setContent(html_ef59f506fab0e5cac67bc130afb5634a);
+                var html_0b7f5902b8c7bf464560ceaf8cc8287c = $(`<div id="html_0b7f5902b8c7bf464560ceaf8cc8287c" style="width: 100.0%; height: 100.0%;"><b>MINI MERCADO ALTO ALEGRE 2                                                                          </b> (Cód: 12142)</div>`)[0];
+                popup_8e85a9574b35d3864a59959f725a1168.setContent(html_0b7f5902b8c7bf464560ceaf8cc8287c);
             
         
 
-        marker_921e0f27e3542220b6ec3f57ab600afa.bindPopup(popup_e3b28762a0333614bd5bdd8e38bff850)
+        marker_f2ae005a8d3364f9385880df242904c2.bindPopup(popup_8e85a9574b35d3864a59959f725a1168)
         ;
 
         
     
     
-            marker_921e0f27e3542220b6ec3f57ab600afa.bindTooltip(
+            marker_f2ae005a8d3364f9385880df242904c2.bindTooltip(
                 `<div>
-                     10 - MERCADINHO DA APARECIDA                                                                             
+                     10 - MINI MERCADO ALTO ALEGRE 2                                                                          
                  </div>`,
                 {
   "sticky": true,
@@ -612,49 +612,49 @@
             );
         
     
-                marker_921e0f27e3542220b6ec3f57ab600afa.setIcon(div_icon_bfd0e409bcac7052179101dffa67a828);
+                marker_f2ae005a8d3364f9385880df242904c2.setIcon(div_icon_a70b0356d11717bd45eec529d8360c52);
             
     
-            var poly_line_a514040f0b0aa77c0fb20539e60a91ab = L.polyline(
-                [[-3.7440842, -38.4749343], [-3.7967961, -38.46483618]],
+            var poly_line_b267b19f03adb52ba999f5fe2f16ff3f = L.polyline(
+                [[-3.88312803, -38.61106739], [-3.88713497, -38.61902587]],
                 {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
+            ).addTo(feature_group_f71870393d8baa6d6682ccf413f5c94a);
         
     
-            var marker_4c1a25662a29c47a54497de5a6d56131 = L.marker(
-                [-3.81862096, -38.52271133],
+            var marker_67ae091070f38e784598116b6752ed93 = L.marker(
+                [-3.8933999, -38.6076423],
                 {
 }
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
+            ).addTo(feature_group_f71870393d8baa6d6682ccf413f5c94a);
         
     
-            var div_icon_c9097cca3d4f1ea48158abf0a40881c7 = L.divIcon({
+            var div_icon_83bc7957814e3a452656f82f037b9c0a = L.divIcon({
   "html": "\u003cdiv style=\u0027width:30px;height:30px;border-radius:50%;background:blue;display:flex;align-items:center;justify-content:center;font-weight:bold;color:white;\u0027\u003e11\u003c/div\u003e",
   "className": "empty",
 });
-            marker_4c1a25662a29c47a54497de5a6d56131.setIcon(div_icon_c9097cca3d4f1ea48158abf0a40881c7);
+            marker_67ae091070f38e784598116b6752ed93.setIcon(div_icon_83bc7957814e3a452656f82f037b9c0a);
         
     
-        var popup_bce0707dacc62c18a21a0b7e38dca0b1 = L.popup({
+        var popup_774988b6804994632559b7461cff1b4b = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_644026dfc45f28320c404b05173b949d = $(`<div id="html_644026dfc45f28320c404b05173b949d" style="width: 100.0%; height: 100.0%;"><b>SEMPRE AKI - LJ01                                                                                   </b> (Cód: 11802)</div>`)[0];
-                popup_bce0707dacc62c18a21a0b7e38dca0b1.setContent(html_644026dfc45f28320c404b05173b949d);
+                var html_8e028920a8783c4f8bf0cd00bee85d4b = $(`<div id="html_8e028920a8783c4f8bf0cd00bee85d4b" style="width: 100.0%; height: 100.0%;"><b>UNICOMPRAS - LJ 03                                                                                  </b> (Cód: 4002)</div>`)[0];
+                popup_774988b6804994632559b7461cff1b4b.setContent(html_8e028920a8783c4f8bf0cd00bee85d4b);
             
         
 
-        marker_4c1a25662a29c47a54497de5a6d56131.bindPopup(popup_bce0707dacc62c18a21a0b7e38dca0b1)
+        marker_67ae091070f38e784598116b6752ed93.bindPopup(popup_774988b6804994632559b7461cff1b4b)
         ;
 
         
     
     
-            marker_4c1a25662a29c47a54497de5a6d56131.bindTooltip(
+            marker_67ae091070f38e784598116b6752ed93.bindTooltip(
                 `<div>
-                     11 - SEMPRE AKI - LJ01                                                                                   
+                     11 - UNICOMPRAS - LJ 03                                                                                  
                  </div>`,
                 {
   "sticky": true,
@@ -662,49 +662,49 @@
             );
         
     
-                marker_4c1a25662a29c47a54497de5a6d56131.setIcon(div_icon_c9097cca3d4f1ea48158abf0a40881c7);
+                marker_67ae091070f38e784598116b6752ed93.setIcon(div_icon_83bc7957814e3a452656f82f037b9c0a);
             
     
-            var poly_line_399ba48d7edcdf6be65347c7eb1734f3 = L.polyline(
-                [[-3.7967961, -38.46483618], [-3.81862096, -38.52271133]],
+            var poly_line_1876cc9f0e63f6d4f85ed23f578e892c = L.polyline(
+                [[-3.88713497, -38.61902587], [-3.8933999, -38.6076423]],
                 {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
+            ).addTo(feature_group_f71870393d8baa6d6682ccf413f5c94a);
         
     
-            var marker_e8c8c0e525e9ce7dd4e80d0f45af27db = L.marker(
-                [-3.81623338, -38.53127553],
+            var marker_5de4f32a0da92826f3580deefea92922 = L.marker(
+                [-3.97234558, -38.52976029],
                 {
 }
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
+            ).addTo(feature_group_f71870393d8baa6d6682ccf413f5c94a);
         
     
-            var div_icon_3a16d61935453d8bb2234716247f5896 = L.divIcon({
+            var div_icon_32a4b57ce26b9d1a7edc9372243004c5 = L.divIcon({
   "html": "\u003cdiv style=\u0027width:30px;height:30px;border-radius:50%;background:blue;display:flex;align-items:center;justify-content:center;font-weight:bold;color:white;\u0027\u003e12\u003c/div\u003e",
   "className": "empty",
 });
-            marker_e8c8c0e525e9ce7dd4e80d0f45af27db.setIcon(div_icon_3a16d61935453d8bb2234716247f5896);
+            marker_5de4f32a0da92826f3580deefea92922.setIcon(div_icon_32a4b57ce26b9d1a7edc9372243004c5);
         
     
-        var popup_2655548c66b91e2bbefbf60226e4ad64 = L.popup({
+        var popup_5cb253b26d1d6fa934192d939f5d9abe = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_093a2589a7878529c4f833525b8cf647 = $(`<div id="html_093a2589a7878529c4f833525b8cf647" style="width: 100.0%; height: 100.0%;"><b>SEMPRE AKI - LJ03                                                                                   </b> (Cód: 11804)</div>`)[0];
-                popup_2655548c66b91e2bbefbf60226e4ad64.setContent(html_093a2589a7878529c4f833525b8cf647);
+                var html_8829e6b868580b131cc7b7868938a448 = $(`<div id="html_8829e6b868580b131cc7b7868938a448" style="width: 100.0%; height: 100.0%;"><b>MAE RAINHA - ITAITINGA                                                                              </b> (Cód: 11219)</div>`)[0];
+                popup_5cb253b26d1d6fa934192d939f5d9abe.setContent(html_8829e6b868580b131cc7b7868938a448);
             
         
 
-        marker_e8c8c0e525e9ce7dd4e80d0f45af27db.bindPopup(popup_2655548c66b91e2bbefbf60226e4ad64)
+        marker_5de4f32a0da92826f3580deefea92922.bindPopup(popup_5cb253b26d1d6fa934192d939f5d9abe)
         ;
 
         
     
     
-            marker_e8c8c0e525e9ce7dd4e80d0f45af27db.bindTooltip(
+            marker_5de4f32a0da92826f3580deefea92922.bindTooltip(
                 `<div>
-                     12 - SEMPRE AKI - LJ03                                                                                   
+                     12 - MAE RAINHA - ITAITINGA                                                                              
                  </div>`,
                 {
   "sticky": true,
@@ -712,49 +712,49 @@
             );
         
     
-                marker_e8c8c0e525e9ce7dd4e80d0f45af27db.setIcon(div_icon_3a16d61935453d8bb2234716247f5896);
+                marker_5de4f32a0da92826f3580deefea92922.setIcon(div_icon_32a4b57ce26b9d1a7edc9372243004c5);
             
     
-            var poly_line_fe2019c556509f7454cb08aca295907f = L.polyline(
-                [[-3.81862096, -38.52271133], [-3.81623338, -38.53127553]],
+            var poly_line_3e36fdd591eb59561dab1b3fd72b0f7e = L.polyline(
+                [[-3.8933999, -38.6076423], [-3.97234558, -38.52976029]],
                 {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
+            ).addTo(feature_group_f71870393d8baa6d6682ccf413f5c94a);
         
     
-            var marker_acd298ccb4a7eb0d074e46fbef999e72 = L.marker(
-                [-3.8169208, -38.5316105],
+            var marker_6f1cb44ef220089838414619576d9e7f = L.marker(
+                [-3.83076563, -38.46236181],
                 {
 }
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
+            ).addTo(feature_group_f71870393d8baa6d6682ccf413f5c94a);
         
     
-            var div_icon_0fe0cd4164bc8c70cc94dc3e7ca23918 = L.divIcon({
+            var div_icon_18ef75699b471cc15f9cdb087d393c14 = L.divIcon({
   "html": "\u003cdiv style=\u0027width:30px;height:30px;border-radius:50%;background:blue;display:flex;align-items:center;justify-content:center;font-weight:bold;color:white;\u0027\u003e13\u003c/div\u003e",
   "className": "empty",
 });
-            marker_acd298ccb4a7eb0d074e46fbef999e72.setIcon(div_icon_0fe0cd4164bc8c70cc94dc3e7ca23918);
+            marker_6f1cb44ef220089838414619576d9e7f.setIcon(div_icon_18ef75699b471cc15f9cdb087d393c14);
         
     
-        var popup_a7ba3a83eea9838a8876e61d8378cc51 = L.popup({
+        var popup_79f4ee9903b064ef56232527f10ffd38 = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_8916b9f309771dfe03c1cc98282a29a8 = $(`<div id="html_8916b9f309771dfe03c1cc98282a29a8" style="width: 100.0%; height: 100.0%;"><b>SUPERMERCADO IRMAO GEMEOS - LJ 01                                                                   </b> (Cód: 3078)</div>`)[0];
-                popup_a7ba3a83eea9838a8876e61d8378cc51.setContent(html_8916b9f309771dfe03c1cc98282a29a8);
+                var html_00e9ea03ec27f78bf07a048ec8e067ee = $(`<div id="html_00e9ea03ec27f78bf07a048ec8e067ee" style="width: 100.0%; height: 100.0%;"><b>MERCADAO TEND TUDO - LAGOA REDONDA                                                                  </b> (Cód: 11669)</div>`)[0];
+                popup_79f4ee9903b064ef56232527f10ffd38.setContent(html_00e9ea03ec27f78bf07a048ec8e067ee);
             
         
 
-        marker_acd298ccb4a7eb0d074e46fbef999e72.bindPopup(popup_a7ba3a83eea9838a8876e61d8378cc51)
+        marker_6f1cb44ef220089838414619576d9e7f.bindPopup(popup_79f4ee9903b064ef56232527f10ffd38)
         ;
 
         
     
     
-            marker_acd298ccb4a7eb0d074e46fbef999e72.bindTooltip(
+            marker_6f1cb44ef220089838414619576d9e7f.bindTooltip(
                 `<div>
-                     13 - SUPERMERCADO IRMAO GEMEOS - LJ 01                                                                   
+                     13 - MERCADAO TEND TUDO - LAGOA REDONDA                                                                  
                  </div>`,
                 {
   "sticky": true,
@@ -762,49 +762,49 @@
             );
         
     
-                marker_acd298ccb4a7eb0d074e46fbef999e72.setIcon(div_icon_0fe0cd4164bc8c70cc94dc3e7ca23918);
+                marker_6f1cb44ef220089838414619576d9e7f.setIcon(div_icon_18ef75699b471cc15f9cdb087d393c14);
             
     
-            var poly_line_f92927ecdceea24408ba4f2d904f0950 = L.polyline(
-                [[-3.81623338, -38.53127553], [-3.8169208, -38.5316105]],
+            var poly_line_47832095754e1b4884d0127a7e5a9369 = L.polyline(
+                [[-3.97234558, -38.52976029], [-3.83076563, -38.46236181]],
                 {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
+            ).addTo(feature_group_f71870393d8baa6d6682ccf413f5c94a);
         
     
-            var marker_c85ab8fc3751242c2168f076075e372d = L.marker(
-                [-3.83641402, -38.52142461],
+            var marker_ab2356daa4f6876892983feeeef58c49 = L.marker(
+                [-3.7197075, -38.5576325],
                 {
 }
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
+            ).addTo(feature_group_f71870393d8baa6d6682ccf413f5c94a);
         
     
-            var div_icon_a7a4317f00775623bff77683bec1c09c = L.divIcon({
+            var div_icon_8bc4aff851c2f46f41d407d899d99e5a = L.divIcon({
   "html": "\u003cdiv style=\u0027width:30px;height:30px;border-radius:50%;background:blue;display:flex;align-items:center;justify-content:center;font-weight:bold;color:white;\u0027\u003e14\u003c/div\u003e",
   "className": "empty",
 });
-            marker_c85ab8fc3751242c2168f076075e372d.setIcon(div_icon_a7a4317f00775623bff77683bec1c09c);
+            marker_ab2356daa4f6876892983feeeef58c49.setIcon(div_icon_8bc4aff851c2f46f41d407d899d99e5a);
         
     
-        var popup_ca892e9783e58301e91813d9d4993271 = L.popup({
+        var popup_8137f9355113b4d46797bb439b315db2 = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_93c85b3f7d919816cac9e6fb2cf99847 = $(`<div id="html_93c85b3f7d919816cac9e6fb2cf99847" style="width: 100.0%; height: 100.0%;"><b>SEMPRE AKI - LJ02                                                                                   </b> (Cód: 11803)</div>`)[0];
-                popup_ca892e9783e58301e91813d9d4993271.setContent(html_93c85b3f7d919816cac9e6fb2cf99847);
+                var html_e25bd8c8a339fbe4e5154d8e9a38926f = $(`<div id="html_e25bd8c8a339fbe4e5154d8e9a38926f" style="width: 100.0%; height: 100.0%;"><b>MERCANTIL AZEVEDO                                                                                   </b> (Cód: 4196)</div>`)[0];
+                popup_8137f9355113b4d46797bb439b315db2.setContent(html_e25bd8c8a339fbe4e5154d8e9a38926f);
             
         
 
-        marker_c85ab8fc3751242c2168f076075e372d.bindPopup(popup_ca892e9783e58301e91813d9d4993271)
+        marker_ab2356daa4f6876892983feeeef58c49.bindPopup(popup_8137f9355113b4d46797bb439b315db2)
         ;
 
         
     
     
-            marker_c85ab8fc3751242c2168f076075e372d.bindTooltip(
+            marker_ab2356daa4f6876892983feeeef58c49.bindTooltip(
                 `<div>
-                     14 - SEMPRE AKI - LJ02                                                                                   
+                     14 - MERCANTIL AZEVEDO                                                                                   
                  </div>`,
                 {
   "sticky": true,
@@ -812,49 +812,49 @@
             );
         
     
-                marker_c85ab8fc3751242c2168f076075e372d.setIcon(div_icon_a7a4317f00775623bff77683bec1c09c);
+                marker_ab2356daa4f6876892983feeeef58c49.setIcon(div_icon_8bc4aff851c2f46f41d407d899d99e5a);
             
     
-            var poly_line_1ccdfb532850019a925892e713fa4075 = L.polyline(
-                [[-3.8169208, -38.5316105], [-3.83641402, -38.52142461]],
+            var poly_line_9a479e251b78a057c86e8bf704473e30 = L.polyline(
+                [[-3.83076563, -38.46236181], [-3.7197075, -38.5576325]],
                 {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
+            ).addTo(feature_group_f71870393d8baa6d6682ccf413f5c94a);
         
     
-            var marker_4e30b9abe4ce6cb0f50424db20ab6980 = L.marker(
-                [-3.86648438, -38.5912026],
+            var marker_432ade12ff12e10d73d62164e453105c = L.marker(
+                [-3.72771524, -38.60293463],
                 {
 }
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
+            ).addTo(feature_group_f71870393d8baa6d6682ccf413f5c94a);
         
     
-            var div_icon_d132c1b976339e0eb3be71d5b532b404 = L.divIcon({
+            var div_icon_b2f69b6c9b8c9b93fe47c65b22486623 = L.divIcon({
   "html": "\u003cdiv style=\u0027width:30px;height:30px;border-radius:50%;background:blue;display:flex;align-items:center;justify-content:center;font-weight:bold;color:white;\u0027\u003e15\u003c/div\u003e",
   "className": "empty",
 });
-            marker_4e30b9abe4ce6cb0f50424db20ab6980.setIcon(div_icon_d132c1b976339e0eb3be71d5b532b404);
+            marker_432ade12ff12e10d73d62164e453105c.setIcon(div_icon_b2f69b6c9b8c9b93fe47c65b22486623);
         
     
-        var popup_d6df5f17190fc12cd018b5b66e8f3cfc = L.popup({
+        var popup_42afe0d765ed20ca0d7ba9e688b6b3d4 = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_da4207431b22cb1a44993e113b48c2a5 = $(`<div id="html_da4207431b22cb1a44993e113b48c2a5" style="width: 100.0%; height: 100.0%;"><b>COMERCIAL NO PREÇO                                                                                  </b> (Cód: 12138)</div>`)[0];
-                popup_d6df5f17190fc12cd018b5b66e8f3cfc.setContent(html_da4207431b22cb1a44993e113b48c2a5);
+                var html_339a9cf6bcdb081bb8c587d4b3fb8b34 = $(`<div id="html_339a9cf6bcdb081bb8c587d4b3fb8b34" style="width: 100.0%; height: 100.0%;"><b>CASA DAS FRUTAS                                                                                     </b> (Cód: 11969)</div>`)[0];
+                popup_42afe0d765ed20ca0d7ba9e688b6b3d4.setContent(html_339a9cf6bcdb081bb8c587d4b3fb8b34);
             
         
 
-        marker_4e30b9abe4ce6cb0f50424db20ab6980.bindPopup(popup_d6df5f17190fc12cd018b5b66e8f3cfc)
+        marker_432ade12ff12e10d73d62164e453105c.bindPopup(popup_42afe0d765ed20ca0d7ba9e688b6b3d4)
         ;
 
         
     
     
-            marker_4e30b9abe4ce6cb0f50424db20ab6980.bindTooltip(
+            marker_432ade12ff12e10d73d62164e453105c.bindTooltip(
                 `<div>
-                     15 - COMERCIAL NO PREÇO                                                                                  
+                     15 - CASA DAS FRUTAS                                                                                     
                  </div>`,
                 {
   "sticky": true,
@@ -862,835 +862,35 @@
             );
         
     
-                marker_4e30b9abe4ce6cb0f50424db20ab6980.setIcon(div_icon_d132c1b976339e0eb3be71d5b532b404);
+                marker_432ade12ff12e10d73d62164e453105c.setIcon(div_icon_b2f69b6c9b8c9b93fe47c65b22486623);
             
     
-            var poly_line_eb157235b8f622fa067d66fa104dbf83 = L.polyline(
-                [[-3.83641402, -38.52142461], [-3.86648438, -38.5912026]],
+            var poly_line_f4d364fd732be5483a0600c77a30298f = L.polyline(
+                [[-3.7197075, -38.5576325], [-3.72771524, -38.60293463]],
                 {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
+            ).addTo(feature_group_f71870393d8baa6d6682ccf413f5c94a);
         
     
-            var marker_5fabe237b60fca9447c97a97aa3e9aec = L.marker(
-                [-3.87602572, -38.59192501],
-                {
-}
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
+            feature_group_f71870393d8baa6d6682ccf413f5c94a.addTo(map_e50f63a7025a169100768d0ab75ce9cb);
         
     
-            var div_icon_efd4dddc4c1e8d70ce8548f74e5e4dfd = L.divIcon({
-  "html": "\u003cdiv style=\u0027width:30px;height:30px;border-radius:50%;background:blue;display:flex;align-items:center;justify-content:center;font-weight:bold;color:white;\u0027\u003e16\u003c/div\u003e",
-  "className": "empty",
-});
-            marker_5fabe237b60fca9447c97a97aa3e9aec.setIcon(div_icon_efd4dddc4c1e8d70ce8548f74e5e4dfd);
-        
-    
-        var popup_1116649139f3e02e0b36faffe7870bf4 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_5b0ffeef6416a21df3689b8868245481 = $(`<div id="html_5b0ffeef6416a21df3689b8868245481" style="width: 100.0%; height: 100.0%;"><b>HIPER MENEZES ATACAREJO                                                                             </b> (Cód: 12137)</div>`)[0];
-                popup_1116649139f3e02e0b36faffe7870bf4.setContent(html_5b0ffeef6416a21df3689b8868245481);
-            
-        
-
-        marker_5fabe237b60fca9447c97a97aa3e9aec.bindPopup(popup_1116649139f3e02e0b36faffe7870bf4)
-        ;
-
-        
-    
-    
-            marker_5fabe237b60fca9447c97a97aa3e9aec.bindTooltip(
-                `<div>
-                     16 - HIPER MENEZES ATACAREJO                                                                             
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_5fabe237b60fca9447c97a97aa3e9aec.setIcon(div_icon_efd4dddc4c1e8d70ce8548f74e5e4dfd);
-            
-    
-            var poly_line_da84d5fb9a4964c59d47728f286e4eac = L.polyline(
-                [[-3.86648438, -38.5912026], [-3.87602572, -38.59192501]],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
-        
-    
-            var marker_79b1a88f5e7f9ee19c08471df989ab3d = L.marker(
-                [-3.8463687, -38.6555481],
-                {
-}
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
-        
-    
-            var div_icon_420ca1ea042d85d4d6da8eb38f9cd5ef = L.divIcon({
-  "html": "\u003cdiv style=\u0027width:30px;height:30px;border-radius:50%;background:blue;display:flex;align-items:center;justify-content:center;font-weight:bold;color:white;\u0027\u003e17\u003c/div\u003e",
-  "className": "empty",
-});
-            marker_79b1a88f5e7f9ee19c08471df989ab3d.setIcon(div_icon_420ca1ea042d85d4d6da8eb38f9cd5ef);
-        
-    
-        var popup_c70c9c2a8d1989a22da1fd1fea4a5663 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_6bd415b279dacc9ab8e682fc85e2d4db = $(`<div id="html_6bd415b279dacc9ab8e682fc85e2d4db" style="width: 100.0%; height: 100.0%;"><b>BENCAO DE DEUS - MARACANAU                                                                          </b> (Cód: 1777)</div>`)[0];
-                popup_c70c9c2a8d1989a22da1fd1fea4a5663.setContent(html_6bd415b279dacc9ab8e682fc85e2d4db);
-            
-        
-
-        marker_79b1a88f5e7f9ee19c08471df989ab3d.bindPopup(popup_c70c9c2a8d1989a22da1fd1fea4a5663)
-        ;
-
-        
-    
-    
-            marker_79b1a88f5e7f9ee19c08471df989ab3d.bindTooltip(
-                `<div>
-                     17 - BENCAO DE DEUS - MARACANAU                                                                          
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_79b1a88f5e7f9ee19c08471df989ab3d.setIcon(div_icon_420ca1ea042d85d4d6da8eb38f9cd5ef);
-            
-    
-            var poly_line_a3c32e573691c0131961e09718086906 = L.polyline(
-                [[-3.87602572, -38.59192501], [-3.8463687, -38.6555481]],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
-        
-    
-            var marker_4b13dd324faadbf3508f5003a45308ef = L.marker(
-                [-3.80892581, -38.62755341],
-                {
-}
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
-        
-    
-            var div_icon_8576ca9d819b4c3e4a2f77d20a777d4a = L.divIcon({
-  "html": "\u003cdiv style=\u0027width:30px;height:30px;border-radius:50%;background:blue;display:flex;align-items:center;justify-content:center;font-weight:bold;color:white;\u0027\u003e18\u003c/div\u003e",
-  "className": "empty",
-});
-            marker_4b13dd324faadbf3508f5003a45308ef.setIcon(div_icon_8576ca9d819b4c3e4a2f77d20a777d4a);
-        
-    
-        var popup_4551ade3e5279e5ec72f990747b2e21b = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_c2e46c9dcaedbbdc3f84bb9981d360a0 = $(`<div id="html_c2e46c9dcaedbbdc3f84bb9981d360a0" style="width: 100.0%; height: 100.0%;"><b>NOVO SIQUEIRA                                                                                       </b> (Cód: 2126)</div>`)[0];
-                popup_4551ade3e5279e5ec72f990747b2e21b.setContent(html_c2e46c9dcaedbbdc3f84bb9981d360a0);
-            
-        
-
-        marker_4b13dd324faadbf3508f5003a45308ef.bindPopup(popup_4551ade3e5279e5ec72f990747b2e21b)
-        ;
-
-        
-    
-    
-            marker_4b13dd324faadbf3508f5003a45308ef.bindTooltip(
-                `<div>
-                     18 - NOVO SIQUEIRA                                                                                       
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_4b13dd324faadbf3508f5003a45308ef.setIcon(div_icon_8576ca9d819b4c3e4a2f77d20a777d4a);
-            
-    
-            var poly_line_cbd45cc864514aac213a95c81e6507f8 = L.polyline(
-                [[-3.8463687, -38.6555481], [-3.80892581, -38.62755341]],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
-        
-    
-            var marker_5b7904b86691bc31b5b4e55fee5aac2a = L.marker(
-                [-3.80683521, -38.62994815],
-                {
-}
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
-        
-    
-            var div_icon_d137be4342836d149c3a4716f7bbd2ce = L.divIcon({
-  "html": "\u003cdiv style=\u0027width:30px;height:30px;border-radius:50%;background:blue;display:flex;align-items:center;justify-content:center;font-weight:bold;color:white;\u0027\u003e19\u003c/div\u003e",
-  "className": "empty",
-});
-            marker_5b7904b86691bc31b5b4e55fee5aac2a.setIcon(div_icon_d137be4342836d149c3a4716f7bbd2ce);
-        
-    
-        var popup_66b2a7dc3782981f083c5234b4b5d284 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_7fff408047eff89ebf57816f441c4331 = $(`<div id="html_7fff408047eff89ebf57816f441c4331" style="width: 100.0%; height: 100.0%;"><b>NOVO SIQUEIRA - LJ02                                                                                </b> (Cód: 11513)</div>`)[0];
-                popup_66b2a7dc3782981f083c5234b4b5d284.setContent(html_7fff408047eff89ebf57816f441c4331);
-            
-        
-
-        marker_5b7904b86691bc31b5b4e55fee5aac2a.bindPopup(popup_66b2a7dc3782981f083c5234b4b5d284)
-        ;
-
-        
-    
-    
-            marker_5b7904b86691bc31b5b4e55fee5aac2a.bindTooltip(
-                `<div>
-                     19 - NOVO SIQUEIRA - LJ02                                                                                
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_5b7904b86691bc31b5b4e55fee5aac2a.setIcon(div_icon_d137be4342836d149c3a4716f7bbd2ce);
-            
-    
-            var poly_line_edb004629c43f34d12c368275288b7ca = L.polyline(
-                [[-3.80892581, -38.62755341], [-3.80683521, -38.62994815]],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
-        
-    
-            var marker_01741a07654bc08393a6f6f095c05f5a = L.marker(
-                [-3.7807157, -38.6223482],
-                {
-}
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
-        
-    
-            var div_icon_1ab551c25becfd4ed7a5753c393ddc3b = L.divIcon({
-  "html": "\u003cdiv style=\u0027width:30px;height:30px;border-radius:50%;background:blue;display:flex;align-items:center;justify-content:center;font-weight:bold;color:white;\u0027\u003e20\u003c/div\u003e",
-  "className": "empty",
-});
-            marker_01741a07654bc08393a6f6f095c05f5a.setIcon(div_icon_1ab551c25becfd4ed7a5753c393ddc3b);
-        
-    
-        var popup_a84deb051ee3f595d0d6b8cbf9f4c714 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_a33832db6afd286f335578c19e5a9ef4 = $(`<div id="html_a33832db6afd286f335578c19e5a9ef4" style="width: 100.0%; height: 100.0%;"><b>CENTERBOX - ATACAREJO                                                                               </b> (Cód: 9586)</div>`)[0];
-                popup_a84deb051ee3f595d0d6b8cbf9f4c714.setContent(html_a33832db6afd286f335578c19e5a9ef4);
-            
-        
-
-        marker_01741a07654bc08393a6f6f095c05f5a.bindPopup(popup_a84deb051ee3f595d0d6b8cbf9f4c714)
-        ;
-
-        
-    
-    
-            marker_01741a07654bc08393a6f6f095c05f5a.bindTooltip(
-                `<div>
-                     20 - CENTERBOX - ATACAREJO                                                                               
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_01741a07654bc08393a6f6f095c05f5a.setIcon(div_icon_1ab551c25becfd4ed7a5753c393ddc3b);
-            
-    
-            var poly_line_8bb6127505c41bccba70920e7f53b675 = L.polyline(
-                [[-3.80683521, -38.62994815], [-3.7807157, -38.6223482]],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
-        
-    
-            var marker_a761bfe4074490b5bbeac58fe4379696 = L.marker(
-                [-3.7752939, -38.6071932],
-                {
-}
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
-        
-    
-            var div_icon_769b634703f9504649cd157e0e74baf3 = L.divIcon({
-  "html": "\u003cdiv style=\u0027width:30px;height:30px;border-radius:50%;background:blue;display:flex;align-items:center;justify-content:center;font-weight:bold;color:white;\u0027\u003e21\u003c/div\u003e",
-  "className": "empty",
-});
-            marker_a761bfe4074490b5bbeac58fe4379696.setIcon(div_icon_769b634703f9504649cd157e0e74baf3);
-        
-    
-        var popup_1fbbccd21c07c7d12047a9a6cac3d77f = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_80dbce5223b010b6d01f5c386b7f1e93 = $(`<div id="html_80dbce5223b010b6d01f5c386b7f1e93" style="width: 100.0%; height: 100.0%;"><b>MERC SAO FRANCISCO - CONJ CEARA                                                                     </b> (Cód: 9322)</div>`)[0];
-                popup_1fbbccd21c07c7d12047a9a6cac3d77f.setContent(html_80dbce5223b010b6d01f5c386b7f1e93);
-            
-        
-
-        marker_a761bfe4074490b5bbeac58fe4379696.bindPopup(popup_1fbbccd21c07c7d12047a9a6cac3d77f)
-        ;
-
-        
-    
-    
-            marker_a761bfe4074490b5bbeac58fe4379696.bindTooltip(
-                `<div>
-                     21 - MERC SAO FRANCISCO - CONJ CEARA                                                                     
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_a761bfe4074490b5bbeac58fe4379696.setIcon(div_icon_769b634703f9504649cd157e0e74baf3);
-            
-    
-            var poly_line_152079ce9d457687ee6dcdb0a70625ef = L.polyline(
-                [[-3.7807157, -38.6223482], [-3.7752939, -38.6071932]],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
-        
-    
-            var marker_0d5984e70b325f7c19710f79c2e178c9 = L.marker(
-                [-3.7667473, -38.6108829],
-                {
-}
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
-        
-    
-            var div_icon_27d9d92a0a96cde183b70dc6042ceb34 = L.divIcon({
-  "html": "\u003cdiv style=\u0027width:30px;height:30px;border-radius:50%;background:blue;display:flex;align-items:center;justify-content:center;font-weight:bold;color:white;\u0027\u003e22\u003c/div\u003e",
-  "className": "empty",
-});
-            marker_0d5984e70b325f7c19710f79c2e178c9.setIcon(div_icon_27d9d92a0a96cde183b70dc6042ceb34);
-        
-    
-        var popup_cb21827c391c88d04ebda698126bff45 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_ddbc20df61ef010c0cb0cbb121990bdc = $(`<div id="html_ddbc20df61ef010c0cb0cbb121990bdc" style="width: 100.0%; height: 100.0%;"><b>MERCANTIL SUPER RMC                                                                                 </b> (Cód: 3715)</div>`)[0];
-                popup_cb21827c391c88d04ebda698126bff45.setContent(html_ddbc20df61ef010c0cb0cbb121990bdc);
-            
-        
-
-        marker_0d5984e70b325f7c19710f79c2e178c9.bindPopup(popup_cb21827c391c88d04ebda698126bff45)
-        ;
-
-        
-    
-    
-            marker_0d5984e70b325f7c19710f79c2e178c9.bindTooltip(
-                `<div>
-                     22 - MERCANTIL SUPER RMC                                                                                 
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_0d5984e70b325f7c19710f79c2e178c9.setIcon(div_icon_27d9d92a0a96cde183b70dc6042ceb34);
-            
-    
-            var poly_line_49e9c7bc5ea9a5dda0bf230c3e7b0168 = L.polyline(
-                [[-3.7752939, -38.6071932], [-3.7667473, -38.6108829]],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
-        
-    
-            var marker_b33baf65c60f07703ab22629627406af = L.marker(
-                [-3.75761186, -38.61031199],
-                {
-}
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
-        
-    
-            var div_icon_54b14f52d982f6a4c03ddd63d94e6063 = L.divIcon({
-  "html": "\u003cdiv style=\u0027width:30px;height:30px;border-radius:50%;background:blue;display:flex;align-items:center;justify-content:center;font-weight:bold;color:white;\u0027\u003e23\u003c/div\u003e",
-  "className": "empty",
-});
-            marker_b33baf65c60f07703ab22629627406af.setIcon(div_icon_54b14f52d982f6a4c03ddd63d94e6063);
-        
-    
-        var popup_161b85e9c3a33e6ea8372f590ad0c7f4 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_c8ec39134dc1ca820cbd1e16a2dd60aa = $(`<div id="html_c8ec39134dc1ca820cbd1e16a2dd60aa" style="width: 100.0%; height: 100.0%;"><b>MIRELLY - CONJ CEARA                                                                                </b> (Cód: 11412)</div>`)[0];
-                popup_161b85e9c3a33e6ea8372f590ad0c7f4.setContent(html_c8ec39134dc1ca820cbd1e16a2dd60aa);
-            
-        
-
-        marker_b33baf65c60f07703ab22629627406af.bindPopup(popup_161b85e9c3a33e6ea8372f590ad0c7f4)
-        ;
-
-        
-    
-    
-            marker_b33baf65c60f07703ab22629627406af.bindTooltip(
-                `<div>
-                     23 - MIRELLY - CONJ CEARA                                                                                
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_b33baf65c60f07703ab22629627406af.setIcon(div_icon_54b14f52d982f6a4c03ddd63d94e6063);
-            
-    
-            var poly_line_6ce26b5a11ecb5675e34ae4d56bf0ef4 = L.polyline(
-                [[-3.7667473, -38.6108829], [-3.75761186, -38.61031199]],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
-        
-    
-            var marker_1b6ee23a0ca1274cfe839ce7b7f6ec49 = L.marker(
-                [-3.73546304, -38.65846975],
-                {
-}
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
-        
-    
-            var div_icon_a72df79238097ee006e4409571fafccc = L.divIcon({
-  "html": "\u003cdiv style=\u0027width:30px;height:30px;border-radius:50%;background:blue;display:flex;align-items:center;justify-content:center;font-weight:bold;color:white;\u0027\u003e24\u003c/div\u003e",
-  "className": "empty",
-});
-            marker_1b6ee23a0ca1274cfe839ce7b7f6ec49.setIcon(div_icon_a72df79238097ee006e4409571fafccc);
-        
-    
-        var popup_c1c2f7d3f8d322e6d3f16fc72b800ac1 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_3b4d1ca579fbca003be0639b2e38db0e = $(`<div id="html_3b4d1ca579fbca003be0639b2e38db0e" style="width: 100.0%; height: 100.0%;"><b>SUPER CAUCAIA - LJ 01                                                                               </b> (Cód: 181)</div>`)[0];
-                popup_c1c2f7d3f8d322e6d3f16fc72b800ac1.setContent(html_3b4d1ca579fbca003be0639b2e38db0e);
-            
-        
-
-        marker_1b6ee23a0ca1274cfe839ce7b7f6ec49.bindPopup(popup_c1c2f7d3f8d322e6d3f16fc72b800ac1)
-        ;
-
-        
-    
-    
-            marker_1b6ee23a0ca1274cfe839ce7b7f6ec49.bindTooltip(
-                `<div>
-                     24 - SUPER CAUCAIA - LJ 01                                                                               
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_1b6ee23a0ca1274cfe839ce7b7f6ec49.setIcon(div_icon_a72df79238097ee006e4409571fafccc);
-            
-    
-            var poly_line_d1dff59d3df617e2d1efb10c0096a7ca = L.polyline(
-                [[-3.75761186, -38.61031199], [-3.73546304, -38.65846975]],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
-        
-    
-            var marker_5eac9440dfd5ecfaa1730410f6ea6d39 = L.marker(
-                [-3.7342526, -38.65836087],
-                {
-}
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
-        
-    
-            var div_icon_1d3a07ef07ae5ba34b88a0664f8f95c8 = L.divIcon({
-  "html": "\u003cdiv style=\u0027width:30px;height:30px;border-radius:50%;background:blue;display:flex;align-items:center;justify-content:center;font-weight:bold;color:white;\u0027\u003e25\u003c/div\u003e",
-  "className": "empty",
-});
-            marker_5eac9440dfd5ecfaa1730410f6ea6d39.setIcon(div_icon_1d3a07ef07ae5ba34b88a0664f8f95c8);
-        
-    
-        var popup_5a29d8bb37da048a136d3a4e73c75363 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_8356eccf166b7bafd3f59c43be70b389 = $(`<div id="html_8356eccf166b7bafd3f59c43be70b389" style="width: 100.0%; height: 100.0%;"><b>SUPER CAUCAIA - LJ 02                                                                               </b> (Cód: 239)</div>`)[0];
-                popup_5a29d8bb37da048a136d3a4e73c75363.setContent(html_8356eccf166b7bafd3f59c43be70b389);
-            
-        
-
-        marker_5eac9440dfd5ecfaa1730410f6ea6d39.bindPopup(popup_5a29d8bb37da048a136d3a4e73c75363)
-        ;
-
-        
-    
-    
-            marker_5eac9440dfd5ecfaa1730410f6ea6d39.bindTooltip(
-                `<div>
-                     25 - SUPER CAUCAIA - LJ 02                                                                               
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_5eac9440dfd5ecfaa1730410f6ea6d39.setIcon(div_icon_1d3a07ef07ae5ba34b88a0664f8f95c8);
-            
-    
-            var poly_line_b1b3a6ca67196f859736fea058a96f30 = L.polyline(
-                [[-3.73546304, -38.65846975], [-3.7342526, -38.65836087]],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
-        
-    
-            var marker_0297cd414891e7ce9b2dac4c0ed4ccf5 = L.marker(
-                [-3.7347353, -38.6595839],
-                {
-}
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
-        
-    
-            var div_icon_653517ba3028ad2d0487aae574d21f3f = L.divIcon({
-  "html": "\u003cdiv style=\u0027width:30px;height:30px;border-radius:50%;background:blue;display:flex;align-items:center;justify-content:center;font-weight:bold;color:white;\u0027\u003e26\u003c/div\u003e",
-  "className": "empty",
-});
-            marker_0297cd414891e7ce9b2dac4c0ed4ccf5.setIcon(div_icon_653517ba3028ad2d0487aae574d21f3f);
-        
-    
-        var popup_1a720ce0961027ffcb809aed411e1d30 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_fd16466358e9fbc2a9ea32c31d2f55b9 = $(`<div id="html_fd16466358e9fbc2a9ea32c31d2f55b9" style="width: 100.0%; height: 100.0%;"><b>CENTERBOX - CAUCAIA                                                                                 </b> (Cód: 4293)</div>`)[0];
-                popup_1a720ce0961027ffcb809aed411e1d30.setContent(html_fd16466358e9fbc2a9ea32c31d2f55b9);
-            
-        
-
-        marker_0297cd414891e7ce9b2dac4c0ed4ccf5.bindPopup(popup_1a720ce0961027ffcb809aed411e1d30)
-        ;
-
-        
-    
-    
-            marker_0297cd414891e7ce9b2dac4c0ed4ccf5.bindTooltip(
-                `<div>
-                     26 - CENTERBOX - CAUCAIA                                                                                 
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_0297cd414891e7ce9b2dac4c0ed4ccf5.setIcon(div_icon_653517ba3028ad2d0487aae574d21f3f);
-            
-    
-            var poly_line_bf4aa0d1ffdc37cf63d10575c3f21fc9 = L.polyline(
-                [[-3.7342526, -38.65836087], [-3.7347353, -38.6595839]],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
-        
-    
-            var marker_a0320cab658a9fb580c5fe7e0e260f4b = L.marker(
-                [-3.74502352, -38.6651701],
-                {
-}
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
-        
-    
-            var div_icon_6a6f6b7ba8602d0d124de247794fe340 = L.divIcon({
-  "html": "\u003cdiv style=\u0027width:30px;height:30px;border-radius:50%;background:blue;display:flex;align-items:center;justify-content:center;font-weight:bold;color:white;\u0027\u003e27\u003c/div\u003e",
-  "className": "empty",
-});
-            marker_a0320cab658a9fb580c5fe7e0e260f4b.setIcon(div_icon_6a6f6b7ba8602d0d124de247794fe340);
-        
-    
-        var popup_92ea9ac92a4ca7f2adeb337e78e24340 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_ce1fdb5940b7f166ba700d8c2f0bab9d = $(`<div id="html_ce1fdb5940b7f166ba700d8c2f0bab9d" style="width: 100.0%; height: 100.0%;"><b>MERCADINHO JR XIMENES                                                                               </b> (Cód: 11242)</div>`)[0];
-                popup_92ea9ac92a4ca7f2adeb337e78e24340.setContent(html_ce1fdb5940b7f166ba700d8c2f0bab9d);
-            
-        
-
-        marker_a0320cab658a9fb580c5fe7e0e260f4b.bindPopup(popup_92ea9ac92a4ca7f2adeb337e78e24340)
-        ;
-
-        
-    
-    
-            marker_a0320cab658a9fb580c5fe7e0e260f4b.bindTooltip(
-                `<div>
-                     27 - MERCADINHO JR XIMENES                                                                               
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_a0320cab658a9fb580c5fe7e0e260f4b.setIcon(div_icon_6a6f6b7ba8602d0d124de247794fe340);
-            
-    
-            var poly_line_76469335320f155f982e34084c299e0b = L.polyline(
-                [[-3.7347353, -38.6595839], [-3.74502352, -38.6651701]],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
-        
-    
-            var marker_eaa915fdc28d239ada8d4e565c0b2dff = L.marker(
-                [-3.68050526, -38.73454749],
-                {
-}
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
-        
-    
-            var div_icon_76cf6df57ed5f8d184f7bc8e6863bc94 = L.divIcon({
-  "html": "\u003cdiv style=\u0027width:30px;height:30px;border-radius:50%;background:blue;display:flex;align-items:center;justify-content:center;font-weight:bold;color:white;\u0027\u003e28\u003c/div\u003e",
-  "className": "empty",
-});
-            marker_eaa915fdc28d239ada8d4e565c0b2dff.setIcon(div_icon_76cf6df57ed5f8d184f7bc8e6863bc94);
-        
-    
-        var popup_cd568c47ce2cc30cd549702d8a254d5c = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_6b210c67ca8cc830df01dea6faa5cc3a = $(`<div id="html_6b210c67ca8cc830df01dea6faa5cc3a" style="width: 100.0%; height: 100.0%;"><b>MERCADINHO SANTO ANTONIO                                                                            </b> (Cód: 12039)</div>`)[0];
-                popup_cd568c47ce2cc30cd549702d8a254d5c.setContent(html_6b210c67ca8cc830df01dea6faa5cc3a);
-            
-        
-
-        marker_eaa915fdc28d239ada8d4e565c0b2dff.bindPopup(popup_cd568c47ce2cc30cd549702d8a254d5c)
-        ;
-
-        
-    
-    
-            marker_eaa915fdc28d239ada8d4e565c0b2dff.bindTooltip(
-                `<div>
-                     28 - MERCADINHO SANTO ANTONIO                                                                            
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_eaa915fdc28d239ada8d4e565c0b2dff.setIcon(div_icon_76cf6df57ed5f8d184f7bc8e6863bc94);
-            
-    
-            var poly_line_fd4c27237bab27209232f6f1382b1ef1 = L.polyline(
-                [[-3.74502352, -38.6651701], [-3.68050526, -38.73454749]],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
-        
-    
-            var marker_c087441c7a34bba7998df988e14ab41f = L.marker(
-                [-3.7100856, -38.5897058],
-                {
-}
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
-        
-    
-            var div_icon_557fe0684a36c90491c4d03bcd0da522 = L.divIcon({
-  "html": "\u003cdiv style=\u0027width:30px;height:30px;border-radius:50%;background:blue;display:flex;align-items:center;justify-content:center;font-weight:bold;color:white;\u0027\u003e29\u003c/div\u003e",
-  "className": "empty",
-});
-            marker_c087441c7a34bba7998df988e14ab41f.setIcon(div_icon_557fe0684a36c90491c4d03bcd0da522);
-        
-    
-        var popup_aef2114025a23656486ed45000b97538 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_8c119a6459b263c2c7bff72111e49636 = $(`<div id="html_8c119a6459b263c2c7bff72111e49636" style="width: 100.0%; height: 100.0%;"><b>CENTERBOX - BARRA                                                                                   </b> (Cód: 4458)</div>`)[0];
-                popup_aef2114025a23656486ed45000b97538.setContent(html_8c119a6459b263c2c7bff72111e49636);
-            
-        
-
-        marker_c087441c7a34bba7998df988e14ab41f.bindPopup(popup_aef2114025a23656486ed45000b97538)
-        ;
-
-        
-    
-    
-            marker_c087441c7a34bba7998df988e14ab41f.bindTooltip(
-                `<div>
-                     29 - CENTERBOX - BARRA                                                                                   
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_c087441c7a34bba7998df988e14ab41f.setIcon(div_icon_557fe0684a36c90491c4d03bcd0da522);
-            
-    
-            var poly_line_ea21026b8a3da7ac48ebcf6edfb6ebe0 = L.polyline(
-                [[-3.68050526, -38.73454749], [-3.7100856, -38.5897058]],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
-        
-    
-            var marker_ff4d0e3207fe584af1d13ccccafa6431 = L.marker(
-                [-3.7135362, -38.5885703],
-                {
-}
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
-        
-    
-            var div_icon_bc9af66f58a44ccb6eb0cf1c91795174 = L.divIcon({
-  "html": "\u003cdiv style=\u0027width:30px;height:30px;border-radius:50%;background:blue;display:flex;align-items:center;justify-content:center;font-weight:bold;color:white;\u0027\u003e30\u003c/div\u003e",
-  "className": "empty",
-});
-            marker_ff4d0e3207fe584af1d13ccccafa6431.setIcon(div_icon_bc9af66f58a44ccb6eb0cf1c91795174);
-        
-    
-        var popup_30452dc497c7c3a5e492258118414a02 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_2fff5e0aa0608289e396fc046774fa20 = $(`<div id="html_2fff5e0aa0608289e396fc046774fa20" style="width: 100.0%; height: 100.0%;"><b>CENTERBOX - CEL CARVALHO                                                                            </b> (Cód: 465)</div>`)[0];
-                popup_30452dc497c7c3a5e492258118414a02.setContent(html_2fff5e0aa0608289e396fc046774fa20);
-            
-        
-
-        marker_ff4d0e3207fe584af1d13ccccafa6431.bindPopup(popup_30452dc497c7c3a5e492258118414a02)
-        ;
-
-        
-    
-    
-            marker_ff4d0e3207fe584af1d13ccccafa6431.bindTooltip(
-                `<div>
-                     30 - CENTERBOX - CEL CARVALHO                                                                            
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_ff4d0e3207fe584af1d13ccccafa6431.setIcon(div_icon_bc9af66f58a44ccb6eb0cf1c91795174);
-            
-    
-            var poly_line_9255ee9f870a40dced45981302ed91bf = L.polyline(
-                [[-3.7100856, -38.5897058], [-3.7135362, -38.5885703]],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
-        
-    
-            var marker_99941ac701f421fa6a8480316cf2c28e = L.marker(
-                [-3.71767679, -38.57899347],
-                {
-}
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
-        
-    
-            var div_icon_f156cad92da18259f457e0d25a8d680c = L.divIcon({
-  "html": "\u003cdiv style=\u0027width:30px;height:30px;border-radius:50%;background:blue;display:flex;align-items:center;justify-content:center;font-weight:bold;color:white;\u0027\u003e31\u003c/div\u003e",
-  "className": "empty",
-});
-            marker_99941ac701f421fa6a8480316cf2c28e.setIcon(div_icon_f156cad92da18259f457e0d25a8d680c);
-        
-    
-        var popup_5dc99cf6cf52d69eba45810854196ca9 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_147d5e4cb3ac5f9fa5f7f0136713ab32 = $(`<div id="html_147d5e4cb3ac5f9fa5f7f0136713ab32" style="width: 100.0%; height: 100.0%;"><b>CENTERBOX - JD IRACEMA                                                                              </b> (Cód: 4202)</div>`)[0];
-                popup_5dc99cf6cf52d69eba45810854196ca9.setContent(html_147d5e4cb3ac5f9fa5f7f0136713ab32);
-            
-        
-
-        marker_99941ac701f421fa6a8480316cf2c28e.bindPopup(popup_5dc99cf6cf52d69eba45810854196ca9)
-        ;
-
-        
-    
-    
-            marker_99941ac701f421fa6a8480316cf2c28e.bindTooltip(
-                `<div>
-                     31 - CENTERBOX - JD IRACEMA                                                                              
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_99941ac701f421fa6a8480316cf2c28e.setIcon(div_icon_f156cad92da18259f457e0d25a8d680c);
-            
-    
-            var poly_line_c30cb47bb202a852d05ff3343bec31fe = L.polyline(
-                [[-3.7135362, -38.5885703], [-3.71767679, -38.57899347]],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(feature_group_1aa6c6d153b02903fbb006f906bacd29);
-        
-    
-            feature_group_1aa6c6d153b02903fbb006f906bacd29.addTo(map_e54444a6f386dd3e68508fdb1b5d6fba);
-        
-    
-            var layer_control_c1dde7cb01de1b256086c7d104b4ba9f_layers = {
+            var layer_control_ac47c443fa59ccfab9776dfa5554847f_layers = {
                 base_layers : {
-                    "openstreetmap" : tile_layer_dedd3bd4d96d0da39bdccf25e4938bb8,
+                    "openstreetmap" : tile_layer_9f44c6e553dc3914468c2ceb75518782,
                 },
                 overlays :  {
-                    "CLIENTES" : feature_group_1aa6c6d153b02903fbb006f906bacd29,
+                    "CLIENTES" : feature_group_f71870393d8baa6d6682ccf413f5c94a,
                 },
             };
-            let layer_control_c1dde7cb01de1b256086c7d104b4ba9f = L.control.layers(
-                layer_control_c1dde7cb01de1b256086c7d104b4ba9f_layers.base_layers,
-                layer_control_c1dde7cb01de1b256086c7d104b4ba9f_layers.overlays,
+            let layer_control_ac47c443fa59ccfab9776dfa5554847f = L.control.layers(
+                layer_control_ac47c443fa59ccfab9776dfa5554847f_layers.base_layers,
+                layer_control_ac47c443fa59ccfab9776dfa5554847f_layers.overlays,
                 {
   "position": "topright",
   "collapsed": true,
   "autoZIndex": true,
 }
-            ).addTo(map_e54444a6f386dd3e68508fdb1b5d6fba);
+            ).addTo(map_e50f63a7025a169100768d0ab75ce9cb);
 
         
 </script>

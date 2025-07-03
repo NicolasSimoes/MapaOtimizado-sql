@@ -2,7 +2,7 @@ import pandas as pd
 import pyodbc
 import folium
 import math
-from datetime import datetime, timedelta
+from datetime import datetime
 from ortools.constraint_solver import pywrapcp, routing_enums_pb2
 
 def haversine_distance(coord1, coord2):
@@ -58,132 +58,136 @@ def gerar_mapa_com_query(tipo):
 
     if tipo == 1:
         nome_arquivo = "mapa_motorista.html"
-        query = """
-       SET DATEFIRST 7; -- Domingo é o dia 1, sábado é 7 (DATEPART = 7)
-
-WITH DataReferencia AS (
-    SELECT CAST(
-        DATEADD(DAY, 
-            CASE 
-                WHEN DATEPART(WEEKDAY, GETDATE()) = 7 THEN 2  -- Sábado → segunda
-                ELSE 1                                     -- Outros dias → amanhã
-            END, 
-            GETDATE()
-        ) AS DATE
-    ) AS DATA_ENTREGA
-),
-
-RankedData AS (
-    SELECT 
-        dt.M06_STATUS,
-        dt.M06_DTSAIDA,
-        dt.M06_ID_CLIENTE AS CODIGO,
-        dt.M06_ID_A76 AS OP,
-        c.A00_FANTASIA AS NOME_FANTASIA,
-        c.A00_LAT AS LATITUDE,
-        c.A00_LONG AS LONGITUDE,
-        m.M13_DESC AS MOTORISTA,
-        SUM(dt.M06_TOTPRO) AS FATURAMENTO,
-        ROW_NUMBER() OVER (
-            PARTITION BY dt.M06_ID_CLIENTE 
-            ORDER BY dt.M06_DTSAIDA
-        ) AS rn
-    FROM M06 AS dt
-    JOIN A00 AS c ON dt.M06_ID_CLIENTE = c.A00_ID
-    JOIN M13 AS m ON dt.M06_ID_M13 = m.M13_ID
-    JOIN DataReferencia dr ON CAST(dt.M06_DTSAIDA AS DATE) = dr.DATA_ENTREGA
-    WHERE 
-        c.A00_STATUS = 1
-        AND dt.M06_ID_A76 IN (38, 39, 100, 1171, 101, 172, 112, 130, 113)
-        AND dt.M06_STATUS IN (1, 3)
-    GROUP BY 
-        dt.M06_STATUS,
-        dt.M06_DTSAIDA,
-        dt.M06_ID_CLIENTE,
-        dt.M06_ID_A76,
-        c.A00_FANTASIA,
-        c.A00_LAT,
-        c.A00_LONG,
-        m.M13_DESC
-)
-
-SELECT 
-    M06_DTSAIDA,
-    CODIGO,
-    OP,
-    NOME_FANTASIA,
-    LATITUDE,
-    LONGITUDE,
-    MOTORISTA,
-    FATURAMENTO
-FROM RankedData
-WHERE rn = 1
-ORDER BY M06_DTSAIDA ASC;
-
-        """
+        query = """SET DATEFIRST 7;
+        WITH DataReferencia AS (
+            SELECT CAST(
+                DATEADD(DAY, 
+                    CASE 
+                        WHEN DATEPART(WEEKDAY, GETDATE()) = 7 THEN 2
+                        ELSE 1
+                    END, 
+                    GETDATE()
+                ) AS DATE
+            ) AS DATA_ENTREGA
+        ),
+        RankedData AS (
+            SELECT 
+                dt.M06_STATUS,
+                dt.M06_DTSAIDA,
+                dt.M06_ID_CLIENTE AS CODIGO,
+                dt.M06_ID_A76 AS OP,
+                c.A00_FANTASIA AS NOME_FANTASIA,
+                c.A00_LAT AS LATITUDE,
+                c.A00_LONG AS LONGITUDE,
+                m.M13_DESC AS MOTORISTA,
+                SUM(dt.M06_TOTPRO) AS FATURAMENTO,
+                ROW_NUMBER() OVER (
+                    PARTITION BY dt.M06_ID_CLIENTE 
+                    ORDER BY dt.M06_DTSAIDA
+                ) AS rn
+            FROM M06 AS dt
+            JOIN A00 AS c ON dt.M06_ID_CLIENTE = c.A00_ID
+            JOIN M13 AS m ON dt.M06_ID_M13 = m.M13_ID
+            JOIN DataReferencia dr ON CAST(dt.M06_DTSAIDA AS DATE) = dr.DATA_ENTREGA
+            WHERE 
+                c.A00_STATUS = 1
+                AND dt.M06_ID_A76 IN (38, 39, 100, 1171, 101, 172, 112, 130, 113)
+                AND dt.M06_STATUS IN (1, 3)
+            GROUP BY 
+                dt.M06_STATUS, dt.M06_DTSAIDA, dt.M06_ID_CLIENTE, dt.M06_ID_A76,
+                c.A00_FANTASIA, c.A00_LAT, c.A00_LONG, m.M13_DESC
+        )
+        SELECT M06_DTSAIDA, CODIGO, OP, NOME_FANTASIA, LATITUDE, LONGITUDE, MOTORISTA, FATURAMENTO
+        FROM RankedData
+        WHERE rn = 1
+        ORDER BY M06_DTSAIDA ASC;"""
+    elif tipo == 3:
+        nome_arquivo = "mapa_motorista_do_dia.html"
+        query = """SET DATEFIRST 7;
+        WITH DataReferencia AS (
+            SELECT CAST(
+                DATEADD(DAY, 
+                    CASE 
+                        WHEN DATEPART(WEEKDAY, GETDATE()) = 7 THEN 2
+                        ELSE 0
+                    END, 
+                    GETDATE()
+                ) AS DATE
+            ) AS DATA_ENTREGA
+        ),
+        RankedData AS (
+            SELECT 
+                dt.M06_STATUS,
+                dt.M06_DTSAIDA,
+                dt.M06_ID_CLIENTE AS CODIGO,
+                dt.M06_ID_A76 AS OP,
+                c.A00_FANTASIA AS NOME_FANTASIA,
+                c.A00_LAT AS LATITUDE,
+                c.A00_LONG AS LONGITUDE,
+                m.M13_DESC AS MOTORISTA,
+                SUM(dt.M06_TOTPRO) AS FATURAMENTO,
+                ROW_NUMBER() OVER (
+                    PARTITION BY dt.M06_ID_CLIENTE 
+                    ORDER BY dt.M06_DTSAIDA
+                ) AS rn
+            FROM M06 AS dt
+            JOIN A00 AS c ON dt.M06_ID_CLIENTE = c.A00_ID
+            JOIN M13 AS m ON dt.M06_ID_M13 = m.M13_ID
+            JOIN DataReferencia dr ON CAST(dt.M06_DTSAIDA AS DATE) = dr.DATA_ENTREGA
+            WHERE 
+                c.A00_STATUS = 1
+                AND dt.M06_ID_A76 IN (38, 39, 100, 1171, 101, 172, 112, 130, 113)
+                AND dt.M06_STATUS IN (1, 3)
+            GROUP BY 
+                dt.M06_STATUS, dt.M06_DTSAIDA, dt.M06_ID_CLIENTE, dt.M06_ID_A76,
+                c.A00_FANTASIA, c.A00_LAT, c.A00_LONG, m.M13_DESC
+        )
+        SELECT M06_DTSAIDA, CODIGO, OP, NOME_FANTASIA, LATITUDE, LONGITUDE, MOTORISTA, FATURAMENTO
+        FROM RankedData
+        WHERE rn = 1
+        ORDER BY M06_DTSAIDA ASC;"""
     else:
         nome_arquivo = "mapa_cliente.html"
-        query = """
-    WITH RankedData AS (
-        SELECT 
-            dt.M06_STATUS,
-            dt.M06_DTSAIDA,
-            dt.M06_ID_CLIENTE AS CODIGO,
-            dt.M06_ID_A76 AS OP,
-            c.A00_FANTASIA AS NOME_FANTASIA,
-            c.A00_LAT AS LATITUDE,
-            c.A00_LONG AS LONGITUDE,
-            SUM(dt.M06_TOTPRO) AS FATURAMENTO,
-            ROW_NUMBER() OVER (
-                PARTITION BY dt.M06_ID_CLIENTE 
-                ORDER BY dt.M06_DTSAIDA
-            ) AS rn
-        FROM M06 AS dt
-        JOIN A00 AS c ON dt.M06_ID_CLIENTE = c.A00_ID
-        WHERE 
-            c.A00_STATUS = 1
-            AND CAST(dt.M06_DTSAIDA AS DATE) = CAST(DATEADD(DAY, 1, GETDATE()) AS DATE)
-            AND dt.M06_ID_A76 IN (38, 39, 100, 1171, 101, 172, 112, 130, 113)
-            AND dt.M06_STATUS IN (1, 3)
-        GROUP BY 
-            dt.M06_STATUS,
-            dt.M06_DTSAIDA,
-            dt.M06_ID_CLIENTE,
-            dt.M06_ID_A76,
-            c.A00_FANTASIA,
-            c.A00_LAT,
-            c.A00_LONG
-    )
-    SELECT 
-        M06_DTSAIDA,
-        CODIGO,
-        OP,
-        NOME_FANTASIA,
-        LATITUDE,
-        LONGITUDE,
-        FATURAMENTO
-    FROM RankedData
-    WHERE rn = 1
-    ORDER BY M06_DTSAIDA ASC;
-    """
+        query = """WITH RankedData AS (
+            SELECT 
+                dt.M06_STATUS,
+                dt.M06_DTSAIDA,
+                dt.M06_ID_CLIENTE AS CODIGO,
+                dt.M06_ID_A76 AS OP,
+                c.A00_FANTASIA AS NOME_FANTASIA,
+                c.A00_LAT AS LATITUDE,
+                c.A00_LONG AS LONGITUDE,
+                SUM(dt.M06_TOTPRO) AS FATURAMENTO,
+                ROW_NUMBER() OVER (
+                    PARTITION BY dt.M06_ID_CLIENTE 
+                    ORDER BY dt.M06_DTSAIDA
+                ) AS rn
+            FROM M06 AS dt
+            JOIN A00 AS c ON dt.M06_ID_CLIENTE = c.A00_ID
+            WHERE 
+                c.A00_STATUS = 1
+                AND CAST(dt.M06_DTSAIDA AS DATE) BETWEEN CAST(GETDATE() AS DATE) AND CAST(DATEADD(DAY, 5, GETDATE()) AS DATE)
+                AND dt.M06_ID_A76 IN (38, 39, 100, 1171, 101, 172, 112, 130, 113)
+                AND dt.M06_STATUS IN (1, 3)
+            GROUP BY 
+                dt.M06_STATUS, dt.M06_DTSAIDA, dt.M06_ID_CLIENTE, dt.M06_ID_A76,
+                c.A00_FANTASIA, c.A00_LAT, c.A00_LONG
+        )
+        SELECT M06_DTSAIDA, CODIGO, OP, NOME_FANTASIA, LATITUDE, LONGITUDE, FATURAMENTO
+        FROM RankedData
+        WHERE rn = 1
+        ORDER BY M06_DTSAIDA ASC;"""
+
     print("Executando query...")
     df = pd.read_sql(query, conn)
     df['LATITUDE'] = pd.to_numeric(df['LATITUDE'], errors='coerce')
     df['LONGITUDE'] = pd.to_numeric(df['LONGITUDE'], errors='coerce')
     df['FATURAMENTO'] = pd.to_numeric(df['FATURAMENTO'], errors='coerce')
     df['M06_DTSAIDA'] = pd.to_datetime(df['M06_DTSAIDA']).dt.date
-    print("Query executada. Gerando mapa...")
-    data_filtro = df['M06_DTSAIDA'].iloc[0] if not df.empty else datetime.now().date()
+    print(f"🔍 Tipo: {tipo} | Registros: {len(df)}")
 
     casa_motorista = (-3.7572635398641, -38.5854081195323)
     mapa = folium.Map(location=casa_motorista, zoom_start=10)
-
-    colors = ['red', 'blue', 'green', 'purple', 'orange', 'darkred', 'darkblue', 'cadetblue', 'pink', 'black']
-    if tipo == 1 and 'MOTORISTA' in df.columns:
-        truck_colors = {t: colors[i % len(colors)] for i, t in enumerate(df['MOTORISTA'].unique())}
-    else:
-        df['MOTORISTA'] = 'CLIENTES'
-        truck_colors = {'CLIENTES': 'blue'}
 
     folium.Marker(
         casa_motorista,
@@ -191,56 +195,51 @@ ORDER BY M06_DTSAIDA ASC;
         tooltip='CD - VALEMILK'
     ).add_to(mapa)
 
-    rotas = []
+    colors = ['red', 'blue', 'green', 'purple', 'orange', 'darkred', 'darkblue', 'cadetblue', 'pink', 'black']
 
-    for truck, grp in df.groupby('MOTORISTA'):
-        clientes_validos = grp[grp['LATITUDE'].notnull() & grp['LONGITUDE'].notnull()].reset_index(drop=True)
-        if clientes_validos.empty:
-            continue
+    if tipo in [1, 3]:
+        df['MOTORISTA'] = df.get('MOTORISTA', 'DESCONHECIDO')
+        truck_colors = {t: colors[i % len(colors)] for i, t in enumerate(df['MOTORISTA'].dropna().unique())}
 
-        coords = [casa_motorista] + list(zip(clientes_validos['LATITUDE'], clientes_validos['LONGITUDE']))
-        dm = build_distance_matrix(coords)
-        route = solve_tsp(dm)
-        ordered_coords = [coords[i] for i in route if i < len(coords)]
-
-        color = truck_colors[truck]
-        fg = folium.FeatureGroup(name=f'{truck}')
-
-        count = 1
-        for i in route[1:]:
-            if i == 0 or (i - 1) >= len(clientes_validos):
+        for truck, grp in df.groupby('MOTORISTA'):
+            clientes_validos = grp[grp['LATITUDE'].notnull() & grp['LONGITUDE'].notnull()].reset_index(drop=True)
+            if clientes_validos.empty:
                 continue
-            row = clientes_validos.iloc[i - 1]
-            loc = (row['LATITUDE'], row['LONGITUDE'])
-            nome = row['NOME_FANTASIA']
-            codigo = row['CODIGO']
 
-            icon_html = (
-                f"<div style='width:30px;height:30px;border-radius:50%;background:{color};"
-                f"display:flex;align-items:center;justify-content:center;font-weight:bold;color:white;'>"
-                f"{count}</div>"
-            )
-            folium.Marker(
-                loc,
-                icon=folium.DivIcon(html=icon_html),
-                tooltip=f"{count} - {nome}",
-                popup=f"<b>{nome}</b> (Cód: {codigo})"
-            ).add_to(fg)
+            coords = [casa_motorista] + list(zip(clientes_validos['LATITUDE'], clientes_validos['LONGITUDE']))
+            dm = build_distance_matrix(coords)
+            route = solve_tsp(dm)
+            ordered_coords = [coords[i] for i in route if i < len(coords)]
 
-            folium.PolyLine([ordered_coords[count - 1], loc], color=color, weight=2).add_to(fg)
-
-            rotas.append({
-                'Motorista': truck,
-                'Ordem': count,
-                'Codigo': codigo,
-                'Nome Fantasia': nome,
-                'Latitude': loc[0],
-                'Longitude': loc[1]
-            })
-
-            count += 1
-
-        fg.add_to(mapa)
+            color = truck_colors[truck]
+            fg = folium.FeatureGroup(name=f'{truck}')
+            count = 1
+            for i in route[1:]:
+                if i == 0 or (i - 1) >= len(clientes_validos):
+                    continue
+                row = clientes_validos.iloc[i - 1]
+                loc = (row['LATITUDE'], row['LONGITUDE'])
+                nome = row['NOME_FANTASIA']
+                codigo = row['CODIGO']
+                icon_html = f"<div style='width:30px;height:30px;border-radius:50%;background:{color};display:flex;align-items:center;justify-content:center;font-weight:bold;color:white;'>{count}</div>"
+                folium.Marker(loc, icon=folium.DivIcon(html=icon_html), tooltip=f"{count} - {nome}", popup=f"<b>{nome}</b><br>Cód: {codigo}").add_to(fg)
+                folium.PolyLine([ordered_coords[count - 1], loc], color=color, weight=2).add_to(fg)
+                count += 1
+            fg.add_to(mapa)
+    else:
+        df['MOTORISTA'] = 'CLIENTES'
+        datas_unicas = sorted(df['M06_DTSAIDA'].unique())
+        data_colors = {data: colors[i % len(colors)] for i, data in enumerate(datas_unicas)}
+        for data, grupo_data in df.groupby('M06_DTSAIDA'):
+            fg = folium.FeatureGroup(name=f'Saída: {data.strftime("%d/%m/%Y")}')
+            color = data_colors[data]
+            for idx, row in grupo_data.iterrows():
+                loc = (row['LATITUDE'], row['LONGITUDE'])
+                nome = row['NOME_FANTASIA']
+                codigo = row['CODIGO']
+                icon_html = f"<div style='width:30px;height:30px;border-radius:50%;background:{color};display:flex;align-items:center;justify-content:center;font-weight:bold;color:white;'>{idx+1}</div>"
+                folium.Marker(loc, icon=folium.DivIcon(html=icon_html), tooltip=f"{nome} - {data.strftime('%d/%m')}", popup=f"<b>{nome}</b><br>Cód: {codigo}<br>Data: {data.strftime('%d/%m/%Y')}").add_to(fg)
+            fg.add_to(mapa)
 
     folium.LayerControl().add_to(mapa)
 
@@ -251,25 +250,34 @@ ORDER BY M06_DTSAIDA ASC;
 
     faturamento_total = df['FATURAMENTO'].sum()
     total_clientes = df['CODIGO'].nunique()
-    df_group['USO_PERC'] = (df_group['FATURAMENTO_TOTAL'] / 8000) * 100
 
     legenda_html = (
-        f"<div style='position:fixed;bottom:50px;left:50px;width:300px;"
-        f"background:white;border:2px solid grey;z-index:9999;padding:10px;"
-        f"box-shadow:2px 2px 5px rgba(0,0,0,0.3);font-size:14px;'>"
-        f"<b>Clientes totais:</b> {total_clientes}<br>"
-        f"<b>Faturamento total:</b> R$ {faturamento_total:,.2f}<br>"
-        f"<b>Atualizado:</b> Saída: {data_filtro.strftime('%d/%m/%Y')}<br><br>"
-        + ''.join([
-            f"<div style='display:flex;align-items:center;margin-bottom:5px;'>"
-            f"<div style='width:15px;height:15px;background:{truck_colors.get(row['MOTORISTA'], 'gray')};"
-            f"border-radius:50%;margin-right:8px;'></div>"
-            f"<b>{row['MOTORISTA'].upper()}</b>: R$ {row['FATURAMENTO_TOTAL']:,.2f}  "
-                      f"</div>"
-            for _, row in df_group.iterrows()
-        ]) +
-        "</div>"
-    )
-    print("foi")
+    f"<div style='position:fixed;bottom:50px;left:50px;width:300px;"
+    f"background:white;border:2px solid grey;z-index:9999;padding:10px;"
+    f"box-shadow:2px 2px 5px rgba(0,0,0,0.3);font-size:14px;'>"
+    f"<b>Clientes totais:</b> {total_clientes}<br>"
+    f"<b>Faturamento total:</b> R$ {faturamento_total:,.2f}<br>"
+    f"<b>Atualizado:</b> {datetime.now().strftime('%d/%m/%Y')}<br><br>"
+)
+
+    if tipo in [1, 3]:
+            legenda_html += ''.join([
+        f"<div style='display:flex;align-items:center;margin-bottom:5px;'>"
+        f"<div style='width:15px;height:15px;background:{truck_colors.get(row['MOTORISTA'], 'gray')};"
+        f"border-radius:50%;margin-right:8px;'></div>"
+        f"<b>{row['MOTORISTA'].upper()}</b>: R$ {row['FATURAMENTO_TOTAL']:,.2f}"
+        f"</div>"
+        for _, row in df_group.iterrows()
+    ])
+    else:
+            legenda_html += "<br><b>Datas:</b><br>" + ''.join([
+        f"<div style='display:flex;align-items:center;margin-bottom:5px;'>"
+        f"<div style='width:15px;height:15px;background:{data_colors[d]};"
+        f"border-radius:50%;margin-right:8px;'></div>{d.strftime('%d/%m/%Y')}</div>"
+        for d in datas_unicas
+    ])
+
+    legenda_html += "</div>"
     mapa.get_root().html.add_child(folium.Element(legenda_html))
     mapa.save(nome_arquivo)
+    print(f"✅ Mapa salvo em: {nome_arquivo}")

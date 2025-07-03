@@ -14,22 +14,18 @@ HTML_TEMPLATE = """
     <title>Vale Milk • Geração de Mapas</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Font Awesome para ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
 
     <style>
         * {
             box-sizing: border-box;
         }
-
         body {
             font-family: Arial, sans-serif;
             background-color: #F2F2F2;
             margin: 0;
             padding: 0;
         }
-
         header {
             background-color: #0066B3;
             color: white;
@@ -37,24 +33,20 @@ HTML_TEMPLATE = """
             display: flex;
             align-items: center;
         }
-
         header img {
             height: 50px;
             margin-right: 20px;
         }
-
         h1 {
             font-size: 1.8em;
             margin: 0;
         }
-
         .container {
-            padding: 60px 20px 0 20px; /* Joga o conteúdo mais para cima */
+            padding: 60px 20px 0 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
-
         .btn {
             background-color: #0066B3;
             color: white;
@@ -69,11 +61,9 @@ HTML_TEMPLATE = """
             width: 280px;
             margin: 10px 0;
         }
-
         .btn:hover {
             background-color: #3399FF;
         }
-
         .btn i {
             margin-right: 8px;
         }
@@ -88,13 +78,19 @@ HTML_TEMPLATE = """
     <div class="container">
         <form action="/mapa_1" method="get">
             <button class="btn" type="submit">
-                <i class="fas fa-truck"></i>  🚚 Mapa com Motorista
+                <i class="fas fa-truck"></i> 🚚 Mapa com Motorista (Rota Amanhã)
             </button>
         </form>
 
         <form action="/mapa_2" method="get">
             <button class="btn" type="submit">
-                <i class="fas fa-user"></i>  🕐 Mapa pedidos pendentes
+                <i class="fas fa-calendar-day"></i> 🕐 Mapa pedidos pendentes 
+            </button>
+        </form>
+
+        <form action="/mapa_3" method="get">
+            <button class="btn" type="submit">
+                <i class="fas fa-user"></i> 🕺 Mapa Motorista do Dia
             </button>
         </form>
 
@@ -104,8 +100,6 @@ HTML_TEMPLATE = """
     </div>
 </body>
 </html>
-
-
 """
 
 @app.route("/")
@@ -119,6 +113,10 @@ def mapa_motorista():
 @app.route("/mapa_2")
 def mapa_cliente():
     return send_file("mapa_cliente.html")
+
+@app.route("/mapa_3")
+def mapa_motorista_do_dia():
+    return send_file("mapa_motorista_do_dia.html")
 
 def atualizar_mapa(tipo, nome_arquivo):
     try:
@@ -139,12 +137,12 @@ def atualizar_mapa(tipo, nome_arquivo):
     except Exception as e:
         print(f"❌ Erro ao atualizar {nome_arquivo}: {e}")
 
-   
     threading.Timer(180, atualizar_mapa, args=(tipo, nome_arquivo)).start()
 
-# Iniciar atualização automática dos dois mapas
+# Iniciar atualização automática dos três mapas
 atualizar_mapa(1, "mapa_motorista.html")
 atualizar_mapa(2, "mapa_cliente.html")
+atualizar_mapa(3, "mapa_motorista_do_dia.html")
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=3000)

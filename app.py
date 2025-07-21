@@ -93,6 +93,11 @@ HTML_TEMPLATE = """
                 <i class="fas fa-user"></i> 🕺 Mapa Motorista do Dia
             </button>
         </form>
+         <form action="/mapa_4" method="get">
+            <button class="btn" type="submit">
+                <i class="fas fa-user"></i> 🏡 Mapa Interior semanal
+            </button>
+        </form>
 
         <a href="http://10.1.1.166:8000/" target="_blank" class="btn">
             <i class="fa-solid fa-map-location-dot"></i> 🌎 Mapa rotas com filtro
@@ -118,6 +123,10 @@ def mapa_cliente():
 def mapa_motorista_do_dia():
     return send_file("mapa_motorista_do_dia.html")
 
+@app.route('/mapa_4')
+def rota_interior_semana():   # nome novo e descritivo
+    return send_file(('mapa_interior_semana.html'))
+
 def atualizar_mapa(tipo, nome_arquivo):
     try:
         agora = datetime.now()
@@ -137,12 +146,13 @@ def atualizar_mapa(tipo, nome_arquivo):
     except Exception as e:
         print(f"❌ Erro ao atualizar {nome_arquivo}: {e}")
 
-    threading.Timer(180, atualizar_mapa, args=(tipo, nome_arquivo)).start()
+    threading.Timer(300, atualizar_mapa, args=(tipo, nome_arquivo)).start()
 
 # Iniciar atualização automática dos três mapas
 atualizar_mapa(1, "mapa_motorista.html")
 atualizar_mapa(2, "mapa_cliente.html")
 atualizar_mapa(3, "mapa_motorista_do_dia.html")
+atualizar_mapa(4, "mapa_interior_semana.html")
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=3000)
+    app.run(host="0.0.0.0", port=9000)

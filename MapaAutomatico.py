@@ -4,6 +4,7 @@ import folium
 import math
 from datetime import datetime
 from ortools.constraint_solver import pywrapcp, routing_enums_pb2
+from datetime import datetime, timedelta
 
 def haversine_distance(coord1, coord2):
     lat1, lon1 = coord1
@@ -101,6 +102,76 @@ def gerar_mapa_com_query(tipo):
         FROM RankedData
         WHERE rn = 1
         ORDER BY M06_DTSAIDA ASC;"""
+    elif tipo == 2:
+        nome_arquivo = "mapa_interior_semana.html"
+        query = """ SET DATEFIRST 7;  -- domingo = 1, segunda = 2, etc.
+
+WITH SemanaAtual AS (
+    -- Calcula a data de segunda e terça da SEMANA CORRENTE,
+    -- independentemente do dia em que a query for executada
+    SELECT
+      CAST(
+        DATEADD(
+          DAY,
+          2 - DATEPART(WEEKDAY, GETDATE()), 
+          CAST(GETDATE() AS DATE)
+        ) 
+      AS DATE) AS DataSegunda,
+      CAST(
+        DATEADD(
+          DAY,
+          3 - DATEPART(WEEKDAY, GETDATE()), 
+          CAST(GETDATE() AS DATE)
+        ) 
+      AS DATE) AS DataTerca
+),
+RankedData AS (
+    SELECT
+      dt.M06_DTSAIDA,
+      dt.M06_ID_CLIENTE    AS CODIGO,
+      dt.M06_ID_A76        AS OP,
+      c.A00_FANTASIA       AS NOME_FANTASIA,
+      c.A00_LAT            AS LATITUDE,
+      c.A00_LONG           AS LONGITUDE,
+      m.M13_DESC           AS MOTORISTA,
+      SUM(dt.M06_TOTPRO)   AS FATURAMENTO,
+      ROW_NUMBER() OVER (
+        PARTITION BY dt.M06_ID_CLIENTE
+        ORDER BY dt.M06_DTSAIDA
+      ) AS rn
+    FROM M06 AS dt
+    JOIN A00 AS c ON c.A00_ID   = dt.M06_ID_CLIENTE
+    JOIN M13 AS m ON m.M13_ID   = dt.M06_ID_M13
+    CROSS JOIN SemanaAtual sa
+    WHERE
+      c.A00_STATUS       = 1
+      AND dt.M06_ID_A76  IN (45, 46, 104, 105, 110, 111, 114, 115)
+      AND dt.M06_STATUS  IN (1, 3)
+      -- filtra apenas as saídas de segunda e terça desta semana
+      AND CAST(dt.M06_DTSAIDA AS DATE) 
+          IN (sa.DataSegunda, sa.DataTerca)
+    GROUP BY
+      dt.M06_DTSAIDA,
+      dt.M06_ID_CLIENTE,
+      dt.M06_ID_A76,
+      c.A00_FANTASIA,
+      c.A00_LAT,
+      c.A00_LONG,
+      m.M13_DESC
+)
+SELECT
+  M06_DTSAIDA,
+  CODIGO,
+  OP,
+  NOME_FANTASIA,
+  LATITUDE,
+  LONGITUDE,
+  MOTORISTA,
+  FATURAMENTO
+FROM RankedData
+WHERE rn = 1
+ORDER BY M06_DTSAIDA;
+"""
     elif tipo == 3:
         nome_arquivo = "mapa_motorista_do_dia.html"
         query = """SET DATEFIRST 7;
@@ -186,18 +257,27 @@ def gerar_mapa_com_query(tipo):
     df['M06_DTSAIDA'] = pd.to_datetime(df['M06_DTSAIDA']).dt.date
     print(f"🔍 Tipo: {tipo} | Registros: {len(df)}")
 
+     # coordenadas padrão (CD ValeMilk)
     casa_motorista = (-3.7572635398641, -38.5854081195323)
-    mapa = folium.Map(location=casa_motorista, zoom_start=10)
+# segunda casa para o mapa interior da semana
+    casa_interior  = (-3.812116512138767,-39.258664813321374)  # coloque aí as coordenadas que quiser
 
+    origem = casa_interior if tipo == 2 else casa_motorista
+
+# --- Cria o mapa a partir da origem correta ---
+    mapa = folium.Map(location=origem, zoom_start=10)
+
+# --- Marca a origem no mapa ---
     folium.Marker(
-        casa_motorista,
-        icon=folium.Icon(color='gray', icon='home', prefix='fa'),
-        tooltip='CD - VALEMILK'
-    ).add_to(mapa)
+        origem,
+    icon=folium.Icon(color='gray', icon='home', prefix='fa'),
+    tooltip='CD - VALEMILK' if tipo != 2 else 'Casa Interior'
+).add_to(mapa)
+
 
     colors = ['red', 'blue', 'green', 'purple', 'orange', 'darkred', 'darkblue', 'cadetblue', 'pink', 'black']
 
-    if tipo in [1, 3]:
+    if tipo in [1,2,3]:
         df['MOTORISTA'] = df.get('MOTORISTA', 'DESCONHECIDO')
         truck_colors = {t: colors[i % len(colors)] for i, t in enumerate(df['MOTORISTA'].dropna().unique())}
 
@@ -206,7 +286,7 @@ def gerar_mapa_com_query(tipo):
             if clientes_validos.empty:
                 continue
 
-            coords = [casa_motorista] + list(zip(clientes_validos['LATITUDE'], clientes_validos['LONGITUDE']))
+            coords = [origem] + list(zip(clientes_validos['LATITUDE'], clientes_validos['LONGITUDE']))
             dm = build_distance_matrix(coords)
             route = solve_tsp(dm)
             ordered_coords = [coords[i] for i in route if i < len(coords)]
@@ -252,30 +332,40 @@ def gerar_mapa_com_query(tipo):
     total_clientes = df['CODIGO'].nunique()
 
     legenda_html = (
-    f"<div style='position:fixed;bottom:50px;left:50px;width:300px;"
-    f"background:white;border:2px solid grey;z-index:9999;padding:10px;"
-    f"box-shadow:2px 2px 5px rgba(0,0,0,0.3);font-size:14px;'>"
-    f"<b>Clientes totais:</b> {total_clientes}<br>"
-    f"<b>Faturamento total:</b> R$ {faturamento_total:,.2f}<br>"
-    f"<b>Atualizado:</b> {datetime.now().strftime('%d/%m/%Y')}<br><br>"
-)
+        f"<div style='position:fixed;bottom:50px;left:50px;width:300px;"
+        f"background:white;border:2px solid grey;z-index:9999;padding:10px;"
+        f"box-shadow:2px 2px 5px rgba(0,0,0,0.3);font-size:14px;'>"
+        f"<b>Clientes totais:</b> {total_clientes}<br>"
+        f"<b>Faturamento total:</b> R$ {faturamento_total:,.2f}<br>"
+        f"<b>Atualizado:</b> {datetime.now().strftime('%d/%m/%Y')}<br>"
+        f"<b>Data de Saída:</b> {(datetime.now() + timedelta(days=1)).strftime('%d/%m/%Y') if tipo == 1 else datetime.now().strftime('%d/%m/%Y')}<br><br>"
+    )
 
-    if tipo in [1, 3]:
-            legenda_html += ''.join([
-        f"<div style='display:flex;align-items:center;margin-bottom:5px;'>"
-        f"<div style='width:15px;height:15px;background:{truck_colors.get(row['MOTORISTA'], 'gray')};"
-        f"border-radius:50%;margin-right:8px;'></div>"
-        f"<b>{row['MOTORISTA'].upper()}</b>: R$ {row['FATURAMENTO_TOTAL']:,.2f}"
-        f"</div>"
-        for _, row in df_group.iterrows()
-    ])
+    if tipo == 1:
+        legenda_html += ''.join([
+            f"<div style='display:flex;align-items:center;margin-bottom:5px;'>"
+            f"<div style='width:15px;height:15px;background:{truck_colors.get(row['MOTORISTA'], 'gray')};"
+            f"border-radius:50%;margin-right:8px;'></div>"
+            f"<b>{row['MOTORISTA'].upper()}</b>: R$ {row['FATURAMENTO_TOTAL']:,.2f}"
+            f"</div>"
+            for _, row in df_group.iterrows()
+        ])
+    elif tipo in [3,2]:
+        legenda_html += ''.join([
+            f"<div style='display:flex;align-items:center;margin-bottom:5px;'>"
+            f"<div style='width:15px;height:15px;background:{truck_colors.get(row['MOTORISTA'], 'gray')};"
+            f"border-radius:50%;margin-right:8px;'></div>"
+            f"<b>{row['MOTORISTA'].upper()}</b>: R$ {row['FATURAMENTO_TOTAL']:,.2f}"
+            f"</div>"
+            for _, row in df_group.iterrows()
+        ])
     else:
-            legenda_html += "<br><b>Datas:</b><br>" + ''.join([
-        f"<div style='display:flex;align-items:center;margin-bottom:5px;'>"
-        f"<div style='width:15px;height:15px;background:{data_colors[d]};"
-        f"border-radius:50%;margin-right:8px;'></div>{d.strftime('%d/%m/%Y')}</div>"
-        for d in datas_unicas
-    ])
+        legenda_html += "<br><b>Datas:</b><br>" + ''.join([
+            f"<div style='display:flex;align-items:center;margin-bottom:5px;'>"
+            f"<div style='width:15px;height:15px;background:{data_colors[d]};"
+            f"border-radius:50%;margin-right:8px;'></div>{d.strftime('%d/%m/%Y')}</div>"
+            for d in datas_unicas
+        ])
 
     legenda_html += "</div>"
     mapa.get_root().html.add_child(folium.Element(legenda_html))

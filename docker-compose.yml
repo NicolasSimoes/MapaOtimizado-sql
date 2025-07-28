@@ -1,0 +1,11 @@
+version: '3.9'
+
+services:
+  valemilk-web:
+    build: .
+    container_name: valemilk_app
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+    restart: always
